@@ -152,9 +152,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   console.log("🚀 Avvio Component Loader...");
 
   // 1. Carica i CSS dei componenti PRIMA dell'HTML
-  loadCSS("components/sidebar-left.css", "sidebar-left-css");
-  loadCSS("components/sidebar-right.css", "sidebar-right-css");
-  loadCSS("components/player.css", "player-css");
+  loadCSS("assets/css/sidebar-left.css", "sidebar-left-css");
+  loadCSS("assets/css/sidebar-right.css", "sidebar-right-css");
+  loadCSS("assets/css/player.css", "player-css");
 
   // 2. Carica TUTTI i componenti HTML in parallelo (più veloce!)
   //    Promise.all aspetta che tutti e 3 i componenti siano caricati
