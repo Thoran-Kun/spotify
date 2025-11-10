@@ -5,54 +5,92 @@
 .main-content {
   margin-left: calc(25% + 12px);
   margin-right: calc(16.666% + 12px);
-  padding: 0 32px;
+  padding: 0;
 }
 
-/* Header sticky */
-.main-content header {
-  position: sticky;
-  top: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(18, 18, 18, 0.95) 0%,
-    rgba(18, 18, 18, 0.7) 100%
-  );
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+.content-wrapper {
+  padding: 16px 32px 32px 32px;
+}
+
+/* Header Navigation */
+.content-header {
   padding: 16px 0;
-  margin: 0 -32px 24px -32px;
-  padding-left: 32px;
-  padding-right: 32px;
-  z-index: 5;
+  margin-bottom: 24px;
+}
+
+.nav-arrows .btn {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.nav-arrows .btn:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+}
+
+.user-profile .btn {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  padding: 2px 8px 2px 2px;
+  border-radius: 23px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.user-profile .btn:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.profile-pic {
+  width: 28px;
+  height: 28px;
+  background-color: #535353;
 }
 
 /* Featured Album */
 .featured-album {
-  display: flex;
-  gap: 24px;
-  margin-bottom: 48px;
-  padding: 24px;
-  background: linear-gradient(
-    135deg,
-    rgba(69, 10, 245, 0.2) 0%,
-    rgba(18, 18, 18, 0.8) 100%
-  );
-  border-radius: 8px;
+  margin-bottom: 32px;
 }
 
-.featured-album-cover {
+.featured-album-content {
+  background: linear-gradient(
+    180deg,
+    rgba(24, 24, 24, 0.8) 0%,
+    rgba(18, 18, 18, 0.9) 100%
+  );
+  padding: 24px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.featured-album-badge-top {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+}
+
+.hide-ads {
+  font-size: 11px;
+  font-weight: 700;
+  color: #b3b3b3;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.album-cover {
   width: 232px;
   height: 232px;
-  object-fit: cover;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-  flex-shrink: 0;
 }
 
-.featured-album-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+.album-info {
   padding-bottom: 8px;
 }
 
@@ -60,118 +98,236 @@
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff;
+  display: block;
   margin-bottom: 8px;
 }
 
 .album-title {
-  font-size: 48px;
+  font-size: 72px;
   font-weight: 900;
-  margin-bottom: 16px;
   line-height: 1.1;
+  margin-bottom: 8px;
+  color: #ffffff;
 }
 
 .album-artist {
   font-size: 14px;
   font-weight: 700;
-  margin-bottom: 8px;
+  color: #ffffff;
 }
 
-.album-meta {
+.album-description {
   font-size: 14px;
   color: #b3b3b3;
 }
 
-/* Album Cards Grid */
-.album-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 24px;
-  margin-bottom: 48px;
+.featured-album .btn-success {
+  background-color: #1db954;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 32px;
 }
 
-.album-card {
-  background: #181818;
-  padding: 16px;
-  border-radius: 8px;
-  transition: background 0.3s;
+.featured-album .btn-success:hover {
+  background-color: #1ed760;
+  transform: scale(1.04);
+}
+
+.featured-album .btn-outline-light {
+  border: 1px solid #878787;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 32px;
+  background-color: transparent;
+}
+
+.featured-album .btn-outline-light:hover {
+  border-color: #ffffff;
+  background-color: transparent;
+  color: #ffffff;
+  transform: scale(1.04);
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Sezione Buonasera */
+.good-evening {
+  margin-bottom: 40px;
+}
+
+.playlist-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 80px;
+  display: flex;
+  align-items: center;
 }
 
-.album-card:hover {
-  background: #282828;
+.playlist-card:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-.album-card-image {
+.playlist-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.playlist-img-grid {
+  width: 80px;
+  height: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.playlist-img-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.playlist-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #450af5, #c4efd9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.playlist-info {
+  padding: 0 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+.playlist-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.playlist-subtitle {
+  font-size: 12px;
+  color: #b3b3b3;
+}
+
+/* Sezione Raccomandazioni */
+.recommendations {
+  margin-bottom: 40px;
+}
+
+.show-all {
+  font-size: 12px;
+  font-weight: 700;
+  color: #b3b3b3;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  transition: color 0.2s ease;
+}
+
+.show-all:hover {
+  color: #ffffff;
+}
+
+.recommendation-card {
+  background-color: #181818;
+  border-radius: 8px;
+  padding: 16px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.recommendation-card:hover {
+  background-color: #282828;
+}
+
+.recommendation-img-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.recommendation-img {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  border-radius: 4px;
-  margin-bottom: 16px;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
-.album-card h6 {
+.recommendation-title {
   font-size: 16px;
   font-weight: 700;
+  color: #ffffff;
   margin-bottom: 8px;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.album-card p {
+.recommendation-desc {
   font-size: 14px;
   color: #b3b3b3;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  overflow: hidden;
+  line-height: 1.4;
 }
 
-/* Sezione raccomandazioni */
-.recommendations h2 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-/* Responsive per main content */
+/* Responsive */
 @media (max-width: 1200px) {
   .main-content {
-    margin-left: calc(25% + 12px);
     margin-right: 12px;
   }
 
-  .album-grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 16px;
+  .album-title {
+    font-size: 48px;
   }
 }
 
 @media (max-width: 768px) {
   .main-content {
     margin-left: 12px;
-    margin-right: 12px;
-    padding: 0 16px;
   }
 
-  .featured-album {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .featured-album-cover {
-    width: 180px;
-    height: 180px;
+  .content-wrapper {
+    padding: 16px;
   }
 
   .album-title {
     font-size: 32px;
   }
 
-  .album-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 12px;
+  .playlist-card {
+    height: auto;
   }
 }

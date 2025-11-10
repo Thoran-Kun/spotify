@@ -110,11 +110,9 @@ function setActivePage() {
   // IMPORTANTE: Se aggiungi nuove pagine, aggiungile qui!
   const pageMap = {
     "homepage.html": "home",
-    "homepage-modular.html": "home",
     "album.html": "album",
     "artist.html": "artist",
     "search.html": "search",
-    "library.html": "library",
   };
 
   // 3. Trova l'ID della pagina corrente (default: "home")
