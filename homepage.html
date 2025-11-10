@@ -3,19 +3,534 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>Spotify Clone - Homepage</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="assets/css/circular-font.css" />
+    <link rel="stylesheet" href="assets/css/homepage.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
-  <body>
+  <body class="bg-black text-white">
+    <div class="container-fluid p-0">
+      <div class="row g-0 min-vh-100">
+        <!-- SIDEBAR SINISTRA - Navigazione e Playlist -->
+        <div class="col-3 sidebar-left">
+          <div class="sidebar-content">
+            <!-- Menu hamburger -->
+            <div class="logo-section p-3">
+              <i class="fas fa-ellipsis-h text-white-50"></i>
+            </div>
 
+            <!-- Menu principale -->
+            <nav class="main-nav">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a href="#" class="nav-link active">
+                    <i class="fas fa-home me-3"></i>Home
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-search me-3"></i>Cerca
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-stream me-3"></i>La tua libreria
+                  </a>
+                </li>
+              </ul>
+            </nav>
 
-    
+            <!-- Sezione Playlist -->
+            <div class="playlist-section">
+              <div class="d-flex align-items-center mb-3">
+                <i class="fas fa-plus me-3"></i>
+                <span>Crea playlist</span>
+              </div>
+              <div class="d-flex align-items-center mb-3">
+                <i class="fas fa-heart me-3 text-gradient"></i>
+                <span>Brani che ti piacciono</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <i class="fas fa-bookmark me-3 text-success"></i>
+                <span>I tuoi episodi</span>
+              </div>
+            </div>
 
+            <!-- Lista Playlist -->
+            <div class="user-playlists">
+              <div class="playlist-item mb-1">
+                early stage emily syndrome (sett-ott 2022)
+              </div>
+              <div class="playlist-item mb-1">Be The Young</div>
+              <div class="playlist-item mb-1">
+                "." cit. Kimiko (lug-ago 2022)
+              </div>
+              <div class="playlist-item mb-1">saggio vibes 🔥🅰️</div>
+              <div class="playlist-item mb-1">
+                main character energy (mag-giu 2022)
+              </div>
+              <div class="playlist-item mb-1">that fucking mood 🔥🤯</div>
+              <div class="playlist-item mb-1">
+                VEE, CARLOTTA E GIACOMO VANNO A BOSIO
+              </div>
+              <div class="playlist-item mb-1">
+                An Emily Winchester kind of mood 🔫🥀
+              </div>
+              <div class="playlist-item mb-1">landing page (mar-apr 2022)</div>
+              <div class="playlist-item mb-1">2021 lol</div>
+              <div class="playlist-item mb-1">
+                cosa cazzo vuol dire questa affermazione (gen-fe...
+              </div>
+              <div class="playlist-item mb-1">
+                honey and glass (nov-dic 2021)
+              </div>
+              <div class="playlist-item mb-1">(Revenge) Training Arc �‍☠️</div>
+              <div class="playlist-item mb-1">Lidia 💙 Emily</div>
+              <div class="playlist-item mb-1">
+                minecraft e nintendo switch (sett-ott 2021)
+              </div>
+              <div class="playlist-item mb-1">
+                silvano d'orba? I hardly know her (lug - ago 2021)
+              </div>
+              <div class="playlist-item mb-1">Culo 2021</div>
+              <div class="playlist-item mb-1">Frah Quintale Mix</div>
+              <div class="playlist-item mb-1">Francesco Guccini Mix</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTENUTO PRINCIPALE CENTRALE -->
+        <div class="col-7 main-content">
+          <div class="content-wrapper p-4">
+            <!-- Header con navigazione -->
+            <div
+              class="content-header d-flex justify-content-between align-items-center mb-4"
+            >
+              <div class="nav-arrows">
+                <button
+                  class="btn btn-dark rounded-circle me-2"
+                  title="Torna indietro"
+                  aria-label="Torna indietro"
+                >
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <button
+                  class="btn btn-dark rounded-circle"
+                  title="Vai avanti"
+                  aria-label="Vai avanti"
+                >
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+
+              <div class="user-profile d-flex align-items-center">
+                <div class="dropdown">
+                  <button
+                    class="btn btn-dark dropdown-toggle d-flex align-items-center"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                  >
+                    <div
+                      class="profile-pic bg-secondary rounded-circle me-2"
+                    ></div>
+                    <span>Lidia Nautilus</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Album in evidenza -->
+            <div class="featured-album mb-5">
+              <div class="row align-items-center">
+                <div class="col-3">
+                  <img
+                    src="assets/imgs/main/album-cover.jpg"
+                    alt="VIOLA (feat. Salmo)"
+                    class="img-fluid rounded shadow"
+                  />
+                </div>
+                <div class="col-9">
+                  <div class="album-info">
+                    <span class="badge bg-secondary mb-2">ALBUM</span>
+                    <h1 class="display-4 fw-bold mb-2">VIOLA (feat. Salmo)</h1>
+                    <p class="text-white-50 mb-3">Fedez, Salmo</p>
+                    <p class="mb-4">
+                      Ascolta il nuovo singolo di Fedez e Salmo!
+                    </p>
+                    <div class="d-flex align-items-center">
+                      <button
+                        class="btn btn-success btn-lg rounded-pill me-3 px-4"
+                      >
+                        <i class="fas fa-play me-2"></i>Play
+                      </button>
+                      <button class="btn btn-outline-light rounded-pill px-4">
+                        Salva
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sezione Buonasera -->
+            <section class="good-evening mb-5">
+              <h2 class="h3 mb-4">Buonasera</h2>
+              <div class="row g-3">
+                <div class="col-6">
+                  <div class="card bg-secondary bg-opacity-25 border-0 rounded">
+                    <div class="row g-0 align-items-center">
+                      <div class="col-3">
+                        <img
+                          src="assets/imgs/main/playlist1.jpg"
+                          alt="early stage emily syndrome"
+                          class="img-fluid rounded-start"
+                        />
+                      </div>
+                      <div class="col-9">
+                        <div class="card-body py-2">
+                          <h6 class="card-title mb-0 text-white">
+                            early stage emily syndrome
+                          </h6>
+                          <small class="text-white-50">(sett-ott 2022)</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="card bg-secondary bg-opacity-25 border-0 rounded">
+                    <div class="row g-0 align-items-center">
+                      <div class="col-3">
+                        <img
+                          src="assets/imgs/main/playlist2.jpg"
+                          alt="Be The Young"
+                          class="img-fluid rounded-start"
+                        />
+                      </div>
+                      <div class="col-9">
+                        <div class="card-body py-2">
+                          <h6 class="card-title mb-0 text-white">
+                            Be The Young
+                          </h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="card bg-secondary bg-opacity-25 border-0 rounded">
+                    <div class="row g-0 align-items-center">
+                      <div class="col-3">
+                        <div
+                          class="playlist-icon bg-purple d-flex align-items-center justify-content-center rounded-start"
+                        >
+                          <i class="fas fa-heart text-white"></i>
+                        </div>
+                      </div>
+                      <div class="col-9">
+                        <div class="card-body py-2">
+                          <h6 class="card-title mb-0 text-white">
+                            Brani che ti piacciono
+                          </h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="card bg-secondary bg-opacity-25 border-0 rounded">
+                    <div class="row g-0 align-items-center">
+                      <div class="col-3">
+                        <img
+                          src="assets/imgs/main/playlist3.jpg"
+                          alt="saggio vibes"
+                          class="img-fluid rounded-start"
+                        />
+                      </div>
+                      <div class="col-9">
+                        <div class="card-body py-2">
+                          <h6 class="card-title mb-0 text-white">
+                            saggio vibes 🔥🅰️
+                          </h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Sezione "Altro di ciò che ti piace" -->
+            <section class="recommendations">
+              <div
+                class="d-flex justify-content-between align-items-center mb-4"
+              >
+                <h2 class="h3 mb-0">Altro di ciò che ti piace</h2>
+                <a href="#" class="text-white-50 small">VISUALIZZA TUTTO</a>
+              </div>
+
+              <div class="row g-3">
+                <div class="col">
+                  <div class="card bg-transparent border-0">
+                    <img
+                      src="assets/imgs/main/rec1.jpg"
+                      alt="Hot Hits Italia"
+                      class="card-img-top rounded"
+                    />
+                    <div class="card-body px-0">
+                      <h6 class="card-title text-white">Hot Hits Italia</h6>
+                      <p class="card-text text-white-50 small">
+                        La playlist più calda del...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card bg-transparent border-0">
+                    <img
+                      src="assets/imgs/main/rec2.jpg"
+                      alt="big on the internet"
+                      class="card-img-top rounded"
+                    />
+                    <div class="card-body px-0">
+                      <h6 class="card-title text-white">big on the internet</h6>
+                      <p class="card-text text-white-50 small">iyiyk</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card bg-transparent border-0">
+                    <img
+                      src="assets/imgs/main/rec3.jpg"
+                      alt="Pop Rising"
+                      class="card-img-top rounded"
+                    />
+                    <div class="card-body px-0">
+                      <h6 class="card-title text-white">Pop Rising</h6>
+                      <p class="card-text text-white-50 small">
+                        The hits of tomorrow are on...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card bg-transparent border-0">
+                    <img
+                      src="assets/imgs/main/rec4.jpg"
+                      alt="Canzoni Tristi"
+                      class="card-img-top rounded"
+                    />
+                    <div class="card-body px-0">
+                      <h6 class="card-title text-white">Canzoni Tristi</h6>
+                      <p class="card-text text-white-50 small">
+                        It's ok not to be ok :'(
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card bg-transparent border-0">
+                    <img
+                      src="assets/imgs/main/rec5.jpg"
+                      alt="in tendenza"
+                      class="card-img-top rounded"
+                    />
+                    <div class="card-body px-0">
+                      <h6 class="card-title text-white">in tendenza</h6>
+                      <p class="card-text text-white-50 small">
+                        Viral & Trending: le canzoni
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- SIDEBAR DESTRA - Attività Amici -->
+        <div class="col-2 sidebar-right">
+          <div class="friends-activity">
+            <!-- Header -->
+            <div class="friends-header">
+              <h6>Attività amici</h6>
+              <div class="header-icons">
+                <button class="header-icon-btn" aria-label="Aggiungi amico">
+                  <i class="fas fa-user-plus"></i>
+                </button>
+                <button class="header-icon-btn" aria-label="Chiudi">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Lista attività -->
+            <div class="friends-list">
+              <!-- Amico 1 -->
+              <div class="friend-activity-item">
+                <div class="friend-avatar-wrapper">
+                  <div class="friend-avatar">
+                    <i class="fas fa-user"></i>
+                  </div>
+                </div>
+                <div class="friend-info">
+                  <div class="friend-header">
+                    <span class="friend-name">Charlie Hookham</span>
+                    <span class="friend-time">4 ore</span>
+                  </div>
+                  <div class="friend-song">In Camer• • Yann Zooma</div>
+                  <div class="friend-album">
+                    <i class="fas fa-circle"></i>
+                    <span>EP III</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Amico 2 -->
+              <div class="friend-activity-item">
+                <div class="friend-avatar-wrapper">
+                  <div class="friend-avatar">
+                    <i class="fas fa-user"></i>
+                  </div>
+                </div>
+                <div class="friend-info">
+                  <div class="friend-header">
+                    <span class="friend-name">lightdark02</span>
+                    <span class="friend-time">8 ore</span>
+                  </div>
+                  <div class="friend-song">Aimed to Kill • Jade LeMac</div>
+                  <div class="friend-album">
+                    <i class="fas fa-circle"></i>
+                    <span>Aimed to Kill</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Amico 3 -->
+              <div class="friend-activity-item">
+                <div class="friend-avatar-wrapper">
+                  <div class="friend-avatar">
+                    <i class="fas fa-user"></i>
+                  </div>
+                </div>
+                <div class="friend-info">
+                  <div class="friend-header">
+                    <span class="friend-name">Valeria Traverso</span>
+                    <span class="friend-time">3 giorni</span>
+                  </div>
+                  <div class="friend-song">New Kings • Sleeping Wolf</div>
+                  <div class="friend-album">
+                    <i class="fas fa-music"></i>
+                    <span>Twist Badass mood</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLAYER MUSICALE FISSO -->
+    <div class="music-player fixed-bottom">
+      <div class="container-fluid h-100">
+        <div class="row align-items-center h-100 g-0 px-2">
+          <!-- Sezione sinistra: Informazioni brano (30%) -->
+          <div class="col-3 d-flex align-items-center player-left">
+            <div class="current-song-image">
+              <img
+                src="assets/imgs/main/fat-funny-friend.jpg"
+                alt="Fat Funny Friend"
+              />
+            </div>
+            <div class="current-song-info">
+              <div class="song-title">Fat Funny Friend</div>
+              <div class="artist-name">Maddie Zahm</div>
+            </div>
+            <button class="heart-btn" aria-label="Aggiungi ai preferiti">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+
+          <!-- Sezione centrale: Controlli e progress (40%) -->
+          <div class="col-6 player-center">
+            <!-- Controlli di riproduzione -->
+            <div
+              class="player-controls d-flex justify-content-center align-items-center gap-2"
+            >
+              <button class="control-btn shuffle-btn" aria-label="Shuffle">
+                <i class="fas fa-random"></i>
+              </button>
+              <button class="control-btn prev-btn" aria-label="Precedente">
+                <i class="fas fa-step-backward"></i>
+              </button>
+              <button class="play-pause-btn" aria-label="Play/Pause">
+                <i class="fas fa-play"></i>
+              </button>
+              <button class="control-btn next-btn" aria-label="Successivo">
+                <i class="fas fa-step-forward"></i>
+              </button>
+              <button class="control-btn repeat-btn" aria-label="Ripeti">
+                <i class="fas fa-redo"></i>
+              </button>
+            </div>
+
+            <!-- Progress bar -->
+            <div class="progress-section d-flex align-items-center gap-2">
+              <span class="time-current">0:58</span>
+              <div class="progress-track-container">
+                <div class="progress-track">
+                  <div class="progress-fill progress-30"></div>
+                  <div class="progress-handle"></div>
+                </div>
+              </div>
+              <span class="time-total">3:20</span>
+            </div>
+          </div>
+
+          <!-- Sezione destra: Volume e altre opzioni (30%) -->
+          <div
+            class="col-3 d-flex align-items-center justify-content-end player-right gap-2"
+          >
+            <button class="control-btn lyrics-btn" aria-label="Testi">
+              <i class="fas fa-microphone-alt"></i>
+            </button>
+            <button class="control-btn queue-btn" aria-label="Coda">
+              <i class="fas fa-list-ul"></i>
+            </button>
+            <button class="control-btn devices-btn" aria-label="Dispositivi">
+              <i class="fas fa-laptop"></i>
+            </button>
+            <button class="control-btn volume-btn" aria-label="Volume">
+              <i class="fas fa-volume-up"></i>
+            </button>
+            <div class="volume-section">
+              <div class="volume-track-container">
+                <div class="volume-track">
+                  <div class="volume-fill volume-100"></div>
+                  <div class="volume-handle"></div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="control-btn fullscreen-btn"
+              aria-label="Schermo intero"
+            >
+              <i class="fas fa-expand-alt"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
