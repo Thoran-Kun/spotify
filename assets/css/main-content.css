@@ -12,7 +12,11 @@
 .main-content header {
   position: sticky;
   top: 0;
-  background: linear-gradient(180deg, rgba(18, 18, 18, 0.95) 0%, rgba(18, 18, 18, 0.7) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(18, 18, 18, 0.95) 0%,
+    rgba(18, 18, 18, 0.7) 100%
+  );
   backdrop-filter: blur(10px);
   padding: 16px 0;
   margin: 0 -32px 24px -32px;
@@ -27,7 +31,11 @@
   gap: 24px;
   margin-bottom: 48px;
   padding: 24px;
-  background: linear-gradient(135deg, rgba(69, 10, 245, 0.2) 0%, rgba(18, 18, 18, 0.8) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(69, 10, 245, 0.2) 0%,
+    rgba(18, 18, 18, 0.8) 100%
+  );
   border-radius: 8px;
 }
 

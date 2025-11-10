@@ -58,13 +58,13 @@ fetch("components/sidebar-left.html")
 
 **CSS Modulare:** Ogni componente ha il suo CSS, stili comuni separati.
 
-| File CSS                 | Contenuto                                          |
-| ------------------------ | -------------------------------------------------- |
-| `common.css`             | Stili globali (body, scrollbar, animazioni, hover) |
-| `main-content.css`       | Stili contenuto centrale (header, album, cards)    |
-| `sidebar-left.css`       | Solo stili sidebar sinistra                        |
-| `sidebar-right.css`      | Solo stili sidebar destra                          |
-| `player.css`             | Solo stili player musicale                         |
+| File CSS            | Contenuto                                          |
+| ------------------- | -------------------------------------------------- |
+| `common.css`        | Stili globali (body, scrollbar, animazioni, hover) |
+| `main-content.css`  | Stili contenuto centrale (header, album, cards)    |
+| `sidebar-left.css`  | Solo stili sidebar sinistra                        |
+| `sidebar-right.css` | Solo stili sidebar destra                          |
+| `player.css`        | Solo stili player musicale                         |
 
 **Come si caricano i CSS:**
 
