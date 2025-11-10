@@ -157,6 +157,7 @@ Salva → Ricarica qualsiasi pagina → La nuova playlist appare ovunque!
 
 1. **Crea** `components/navbar.html`
 2. **Aggiungi in `components-loader.js`:**
+
    ```javascript
    await Promise.all([
      loadComponent("components/sidebar-left.html", "sidebar-left-container"),
@@ -164,6 +165,7 @@ Salva → Ricarica qualsiasi pagina → La nuova playlist appare ovunque!
      // ...
    ]);
    ```
+
 3. **Aggiungi placeholder** nelle pagine: `<div id="navbar-container"></div>`
 
 ---
@@ -173,9 +175,11 @@ Salva → Ricarica qualsiasi pagina → La nuova playlist appare ovunque!
 **2 passi:**
 
 1. **Commenta in `components-loader.js`:**
+
    ```javascript
    // loadComponent("components/sidebar-right.html", "sidebar-right-container"),
    ```
+
 2. **Rimuovi placeholder** dalle pagine
 
 ---
@@ -220,12 +224,12 @@ npx http-server
 **Causa:** Pagina non nel `pageMap` di `components-loader.js`  
 **Soluzione:** Aggiungi la pagina:
 
-```javascript
+   ```javascript
 const pageMap = {
   "homepage.html": "home",
   "search.html": "search", // ← Aggiungi
 };
-```
+   ```
 
 ### Modifiche non appaiono
 
