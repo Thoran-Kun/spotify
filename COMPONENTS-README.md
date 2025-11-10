@@ -10,27 +10,39 @@
 epicode-S4-BW2_Spotify_Clone/
 ├── components/                # Componenti riutilizzabili
 │   ├── sidebar-left.html      # Navigazione + playlist
+│   ├── sidebar-left.css       # Stili sidebar sinistra
 │   ├── sidebar-right.html     # Attività amici
-│   └── player.html            # Player musicale
-├── assets/js/
-│   └── components-loader.js   # Script che carica i componenti
+│   ├── sidebar-right.css      # Stili sidebar destra
+│   ├── player.html            # Player musicale
+│   └── player.css             # Stili player
+├── assets/
+│   ├── css/
+│   │   ├── common.css         # Stili globali comuni
+│   │   └── main-content.css   # Stili contenuto centrale
+│   └── js/
+│       └── components-loader.js   # Script che carica componenti + CSS
 └── *.html                     # Pagine del sito
 ```
 
-**Principio:** Modifichi 1 componente → Cambia in tutte le pagine!
+**Principio:** Modifichi 1 componente (HTML o CSS) → Cambia in tutte le pagine!
 
 ---
 
 ## 🔍 Come Funziona
 
-**3 passi semplici:**
+**4 passi semplici:**
 
 1. **Pagina HTML** → Dichiara contenitori vuoti (`<div id="sidebar-left-container">`)
 2. **Browser** → Carica `components-loader.js`
-3. **Loader** → Scarica i componenti e li inserisce nei contenitori
+3. **Loader** → Carica i CSS dei componenti dinamicamente
+4. **Loader** → Scarica i componenti HTML e li inserisce nei contenitori
 
 ```javascript
 // Codice semplificato del loader
+// 1. Carica CSS
+loadCSS("components/sidebar-left.css", "sidebar-left-css");
+
+// 2. Carica HTML
 fetch("components/sidebar-left.html")
   .then((response) => response.text())
   .then((html) => {
@@ -39,6 +51,31 @@ fetch("components/sidebar-left.html")
 ```
 
 **Bonus:** Il loader evidenzia automaticamente il link della pagina attiva nel menu.
+
+---
+
+## 🎨 Architettura CSS
+
+**CSS Modulare:** Ogni componente ha il suo CSS, stili comuni separati.
+
+| File CSS                 | Contenuto                                          |
+| ------------------------ | -------------------------------------------------- |
+| `common.css`             | Stili globali (body, scrollbar, animazioni, hover) |
+| `main-content.css`       | Stili contenuto centrale (header, album, cards)    |
+| `sidebar-left.css`       | Solo stili sidebar sinistra                        |
+| `sidebar-right.css`      | Solo stili sidebar destra                          |
+| `player.css`             | Solo stili player musicale                         |
+
+**Come si caricano i CSS:**
+
+- `common.css` e `main-content.css` → Caricate nella pagina HTML (`<link>`)
+- `sidebar-left.css`, `sidebar-right.css`, `player.css` → Caricate automaticamente da `components-loader.js`
+
+**Vantaggi:**
+
+- ✅ Modifichi `player.css` → Cambia solo il player
+- ✅ File CSS più piccoli e organizzati
+- ✅ Ogni componente è completamente autonomo (HTML + CSS)
 
 ---
 
@@ -56,7 +93,10 @@ fetch("components/sidebar-left.html")
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/homepage.css" />
+    <!-- Stili comuni globali -->
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <!-- Stili contenuto centrale -->
+    <link rel="stylesheet" href="assets/css/main-content.css" />
   </head>
   <body class="bg-black text-white">
     <div class="container-fluid p-0">
@@ -77,6 +117,7 @@ fetch("components/sidebar-left.html")
     <!-- Script obbligatorio -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/components-loader.js"></script>
+    <!-- ☝️ Questo script carica automaticamente i CSS dei componenti! -->
   </body>
 </html>
 ```
@@ -84,8 +125,10 @@ fetch("components/sidebar-left.html")
 **Regole:**
 
 - ✅ I 3 `<div id="...">` con ID esatti: `sidebar-left-container`, `sidebar-right-container`, `player-container`
-- ✅ `components-loader.js` alla fine del `<body>`
+- ✅ `components-loader.js` alla fine del `<body>` (carica automaticamente i CSS dei componenti)
+- ✅ `common.css` e `main-content.css` nel `<head>`
 - ❌ Non cambiare gli ID dei placeholder
+- ❌ Non caricare manualmente `sidebar-left.css`, `sidebar-right.css`, `player.css` (ci pensa il loader!)
 
 ---
 

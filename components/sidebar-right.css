@@ -1,0 +1,130 @@
+/* ============================= */
+/*       SIDEBAR DESTRA         */
+/* ============================= */
+
+.sidebar-right {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #000000;
+  padding: 24px 16px;
+  z-index: 10;
+}
+
+/* Scrollbar specifica per sidebar destra */
+.sidebar-right::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-right::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-right::-webkit-scrollbar-thumb {
+  background: #535353;
+  border-radius: 3px;
+}
+
+.sidebar-right::-webkit-scrollbar-thumb:hover {
+  background: #727272;
+}
+
+/* Friends activity header */
+.friends-activity .friends-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.friends-activity .friends-header h6 {
+  font-size: 11px;
+  font-weight: 700;
+  color: #b3b3b3;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.friends-activity .friends-header i {
+  font-size: 16px;
+  color: #b3b3b3;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.friends-activity .friends-header i:hover {
+  color: #ffffff;
+}
+
+/* Friends list */
+.friends-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Friend activity item */
+.friend-activity-item {
+  display: flex;
+  gap: 12px;
+}
+
+.friend-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.friend-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.friend-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.friend-song {
+  font-size: 11px;
+  font-weight: 400;
+  color: #b3b3b3;
+  margin-bottom: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.friend-album {
+  font-size: 9px;
+  font-weight: 400;
+  color: #6a6a6a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.friend-time {
+  font-size: 10px;
+  font-weight: 400;
+  color: #6a6a6a;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.friend-time i {
+  font-size: 8px;
+}

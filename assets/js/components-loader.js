@@ -4,13 +4,14 @@
  * ========================================
  *
  * Questo file carica automaticamente i componenti comuni (sidebar e player)
- * in tutte le pagine del sito, evitando di duplicare codice HTML.
+ * in tutte le pagine del sito, evitando di duplicare codice HTML e CSS.
  *
  * COSA FA:
- * 1. Carica sidebar-left.html nella pagina
- * 2. Carica sidebar-right.html nella pagina
- * 3. Carica player.html nella pagina
- * 4. Evidenzia automaticamente il link della pagina corrente nel menu
+ * 1. Carica i CSS dei componenti (sidebar-left.css, sidebar-right.css, player.css)
+ * 2. Carica sidebar-left.html nella pagina
+ * 3. Carica sidebar-right.html nella pagina
+ * 4. Carica player.html nella pagina
+ * 5. Evidenzia automaticamente il link della pagina corrente nel menu
  *
  * COME USARLO:
  * Aggiungi questo script in OGNI pagina HTML prima del tag </body>:
@@ -26,7 +27,34 @@
  */
 
 // ========================================
-// FUNZIONE 1: Carica un componente HTML
+// FUNZIONE 1: Carica un CSS component
+// ========================================
+/**
+ * Questa funzione carica dinamicamente un file CSS nella pagina
+ *
+ * @param {string} cssPath - Percorso del file CSS (es: "components/sidebar-left.css")
+ * @param {string} id - ID univoco per il tag <link> (es: "sidebar-left-css")
+ */
+function loadCSS(cssPath, id) {
+  // Verifica se il CSS è già stato caricato
+  if (document.getElementById(id)) {
+    console.log(`⚠️ CSS già caricato: ${cssPath}`);
+    return;
+  }
+
+  // Crea un nuovo elemento <link>
+  const link = document.createElement("link");
+  link.id = id;
+  link.rel = "stylesheet";
+  link.href = cssPath;
+
+  // Aggiungi il <link> al <head>
+  document.head.appendChild(link);
+  console.log(`✅ CSS caricato: ${cssPath}`);
+}
+
+// ========================================
+// FUNZIONE 2: Carica un componente HTML
 // ========================================
 /**
  * Questa funzione prende un file HTML e lo inserisce dentro un elemento della pagina
@@ -67,7 +95,7 @@ async function loadComponent(componentPath, targetId) {
 }
 
 // ========================================
-// FUNZIONE 2: Evidenzia pagina attiva
+// FUNZIONE 3: Evidenzia pagina attiva
 // ========================================
 /**
  * Questa funzione trova la pagina corrente e evidenzia il link corrispondente
@@ -123,7 +151,12 @@ function setActivePage() {
 document.addEventListener("DOMContentLoaded", async () => {
   console.log("🚀 Avvio Component Loader...");
 
-  // 1. Carica TUTTI i componenti in parallelo (più veloce!)
+  // 1. Carica i CSS dei componenti PRIMA dell'HTML
+  loadCSS("components/sidebar-left.css", "sidebar-left-css");
+  loadCSS("components/sidebar-right.css", "sidebar-right-css");
+  loadCSS("components/player.css", "player-css");
+
+  // 2. Carica TUTTI i componenti HTML in parallelo (più veloce!)
   //    Promise.all aspetta che tutti e 3 i componenti siano caricati
   await Promise.all([
     loadComponent("components/sidebar-left.html", "sidebar-left-container"),
@@ -131,7 +164,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     loadComponent("components/player.html", "player-container"),
   ]);
 
-  // 2. Dopo che i componenti sono caricati, evidenzia la pagina attiva
+  // 3. Dopo che i componenti sono caricati, evidenzia la pagina attiva
   setActivePage();
 
   console.log("✅ Tutti i componenti sono stati caricati con successo!");
