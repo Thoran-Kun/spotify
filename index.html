@@ -3,19 +3,48 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>Spotify Clone - Homepage</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="assets/css/circular-font.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/main-content.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
-  <body>
+  <body class="bg-black text-white">
+    <div class="container-fluid p-0">
+      <div class="row g-0 min-vh-100">
+        <!-- SIDEBAR SINISTRA - Caricata dinamicamente -->
+        <div id="sidebar-left-container"></div>
+
+        <!-- CONTENUTO PRINCIPALE CENTRALE -->
+        <div class="col col-sm-7 main-content" id='main'>
+        </div>
+
+        <!-- SIDEBAR DESTRA - Caricata dinamicamente -->
+        <div id="sidebar-right-container"></div>
+      </div>
+    </div>
+
+    <!-- PLAYER MUSICALE - Caricato dinamicamente -->
+    <div id="player-container"></div>
+
+    <!-- Scripts -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <script src="assets/js/components-loader.js"></script>
+    <script src="./home.js"></script>
+    <script src="./album.js"></script>
+    <script src="./index.js"></script>
   </body>
 </html>
