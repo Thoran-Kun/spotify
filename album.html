@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spotify Clone - Album</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/circular-font.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/main-content.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-black text-white">
+    <div class="container-fluid p-0">
+      <div class="row g-0 min-vh-100">
+        <!-- SIDEBAR SINISTRA - Caricata dinamicamente -->
+        <div id="sidebar-left-container"></div>
+
+        <!-- CONTENUTO PRINCIPALE CENTRALE - ALBUM PAGE -->
+        <div class="col-7 main-content">
+          <div class="content-wrapper p-4">
+            <!-- Header con navigazione -->
+            <div
+              class="content-header d-flex justify-content-between align-items-center mb-4"
+            >
+              <div class="nav-arrows">
+                <button
+                  class="btn btn-dark rounded-circle me-2"
+                  title="Torna indietro"
+                  aria-label="Torna indietro"
+                >
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <button
+                  class="btn btn-dark rounded-circle"
+                  title="Vai avanti"
+                  aria-label="Vai avanti"
+                >
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+
+              <div class="user-profile d-flex align-items-center">
+                <div class="dropdown">
+                  <button
+                    class="btn btn-dark dropdown-toggle d-flex align-items-center"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                  >
+                    <div
+                      class="profile-pic bg-secondary rounded-circle me-2"
+                    ></div>
+                    <span>Lidia Nautilus</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- CONTENUTO ALBUM - DA COMPLETARE -->
+            <div class="album-page-content">
+              <h1 class="display-4 mb-4">Album Page</h1>
+              <p class="text-white-50">
+                Contenuto dell'album da implementare...
+              </p>
+
+              <!-- Placeholder per Hero Album -->
+              <div class="album-hero mb-5">
+                <div class="alert alert-secondary" role="alert">
+                  <i class="fas fa-compact-disc me-2"></i>
+                  <strong>Sezione Hero Album:</strong> Cover, titolo, artista,
+                  anno, durata totale
+                </div>
+              </div>
+
+              <!-- Placeholder per Lista Brani -->
+              <div class="album-tracklist mb-5">
+                <div class="alert alert-secondary" role="alert">
+                  <i class="fas fa-list-ol me-2"></i>
+                  <strong>Lista Tracce:</strong> Tabella con numero, titolo,
+                  durata, pulsante play
+                </div>
+              </div>
+
+              <!-- Placeholder per Altri Album -->
+              <div class="more-albums">
+                <div class="alert alert-secondary" role="alert">
+                  <i class="fas fa-music me-2"></i>
+                  <strong>Altri Album dell'Artista:</strong> Carousel o griglia
+                  di album correlati
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIDEBAR DESTRA - Caricata dinamicamente -->
+        <div id="sidebar-right-container"></div>
+      </div>
+    </div>
+
+    <!-- PLAYER MUSICALE - Caricato dinamicamente -->
+    <div id="player-container"></div>
+
+    <!-- Scripts -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js/components-loader.js"></script>
+  </body>
+</html>

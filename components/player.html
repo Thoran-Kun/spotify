@@ -1,0 +1,88 @@
+<!-- PLAYER MUSICALE FISSO -->
+<div class="music-player fixed-bottom">
+  <div class="container-fluid h-100">
+    <div class="row align-items-center h-100 g-0 px-2">
+      <!-- Sezione sinistra: Informazioni brano (30%) -->
+      <div class="col-3 d-flex align-items-center player-left">
+        <div class="current-song-image">
+          <img
+            src="assets/imgs/main/fat-funny-friend.jpg"
+            alt="Fat Funny Friend"
+          />
+        </div>
+        <div class="current-song-info">
+          <div class="song-title">Fat Funny Friend</div>
+          <div class="artist-name">Maddie Zahm</div>
+        </div>
+        <button class="heart-btn" aria-label="Aggiungi ai preferiti">
+          <i class="far fa-heart"></i>
+        </button>
+      </div>
+
+      <!-- Sezione centrale: Controlli e progress (40%) -->
+      <div class="col-6 player-center">
+        <!-- Controlli di riproduzione -->
+        <div
+          class="player-controls d-flex justify-content-center align-items-center gap-2"
+        >
+          <button class="control-btn shuffle-btn" aria-label="Shuffle">
+            <i class="fas fa-random"></i>
+          </button>
+          <button class="control-btn prev-btn" aria-label="Precedente">
+            <i class="fas fa-step-backward"></i>
+          </button>
+          <button class="play-pause-btn" aria-label="Play/Pause">
+            <i class="fas fa-play"></i>
+          </button>
+          <button class="control-btn next-btn" aria-label="Successivo">
+            <i class="fas fa-step-forward"></i>
+          </button>
+          <button class="control-btn repeat-btn" aria-label="Ripeti">
+            <i class="fas fa-redo"></i>
+          </button>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="progress-section d-flex align-items-center gap-2">
+          <span class="time-current">0:58</span>
+          <div class="progress-track-container">
+            <div class="progress-track">
+              <div class="progress-fill progress-30"></div>
+              <div class="progress-handle"></div>
+            </div>
+          </div>
+          <span class="time-total">3:20</span>
+        </div>
+      </div>
+
+      <!-- Sezione destra: Volume e altre opzioni (30%) -->
+      <div
+        class="col-3 d-flex align-items-center justify-content-end player-right gap-2"
+      >
+        <button class="control-btn lyrics-btn" aria-label="Testi">
+          <i class="fas fa-microphone-alt"></i>
+        </button>
+        <button class="control-btn queue-btn" aria-label="Coda">
+          <i class="fas fa-list-ul"></i>
+        </button>
+        <button class="control-btn devices-btn" aria-label="Dispositivi">
+          <i class="fas fa-laptop"></i>
+        </button>
+        <button class="control-btn volume-btn" aria-label="Volume">
+          <i class="fas fa-volume-up"></i>
+        </button>
+        <div class="volume-section">
+          <div class="volume-track-container">
+            <div class="volume-track">
+              <div class="volume-fill volume-100"></div>
+              <div class="volume-handle"></div>
+            </div>
+          </div>
+        </div>
+        <button class="control-btn fullscreen-btn" aria-label="Schermo intero">
+          <i class="fas fa-expand-alt"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
