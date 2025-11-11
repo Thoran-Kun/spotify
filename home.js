@@ -1,5 +1,5 @@
-const Home = function(){
-	return `
+const Home = function () {
+  return `
           <div class="content-wrapper p-4">
             <!-- Header con navigazione -->
             <div
@@ -9,11 +9,15 @@ const Home = function(){
                 <button
                   class="btn btn-dark rounded-circle me-2"
                   title="Go back"
+                  onclick="indietro()"
                 >
                   <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="btn btn-dark rounded-circle" title="Go forward">
+                <button class="btn btn-dark rounded-circle"  
+                onclick="avanti()"
+                title="Go forward">
                   <i class="fas fa-chevron-right"></i>
+                
                 </button>
               </div>
 
@@ -529,5 +533,5 @@ const Home = function(){
               </div>
             </section>
           </div>
-	` 
-}
+	`;
+};
