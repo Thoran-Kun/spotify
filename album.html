@@ -25,263 +25,246 @@
         <!-- SIDEBAR SINISTRA - Caricata dinamicamente -->
         <div id="sidebar-left-container"></div>
 
-        <!-- CONTENUTO PRINCIPALE CENTRALE - ALBUM PAGE -->
-        <div class="col-7 main-content">
-          <div class="content-wrapper p-4">
-            <!-- Header con navigazione -->
-            <div
-              class="content-header d-flex justify-content-between align-items-center mb-4"
-            >
-              <div class="nav-arrows">
-                <button
-                  class="btn btn-dark rounded-circle me-2"
-                  title="Torna indietro"
-                  aria-label="Torna indietro"
-                >
-                  <i class="fas fa-chevron-left"></i>
-                </button>
-                <button
-                  class="btn btn-dark rounded-circle"
-                  title="Vai avanti"
-                  aria-label="Vai avanti"
-                >
-                  <i class="fas fa-chevron-right"></i>
-                </button>
-              </div>
-
-              <div class="user-profile d-flex align-items-center">
-                <div class="dropdown">
-                  <button
-                    class="btn btn-dark dropdown-toggle d-flex align-items-center"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                  >
-                    <div
-                      class="profile-pic bg-secondary rounded-circle me-2"
-                    ></div>
-                    <span>Lidia Nautilus</span>
-                  </button>
-                </div>
-              </div>
+        <div class="album-section">
+          <!-- TOP -->
+          <div
+            class="content-header d-flex justify-content-between align-items-center mb-4"
+          >
+            <div class="nav-arrows">
+              <button
+                class="btn btn-dark rounded-circle me-2"
+                title="Torna indietro"
+                aria-label="Torna indietro"
+              >
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button
+                class="btn btn-dark rounded-circle"
+                title="Vai avanti"
+                aria-label="Vai avanti"
+              >
+                <i class="fas fa-chevron-right"></i>
+              </button>
             </div>
 
-            <!-- CONTENUTO ALBUM - HERO SUPERIORE -->
-            <div class="album-section">
-              <!-- TOP -->
-              <div class="album-top">
-                <img
-                  src="album-cover.jpg"
-                  alt="Copertina Gioventù brucata"
-                  class="cover"
-                />
-
-                <div class="album-info flex-grow-1">
-                  <h1>Gioventù brucata</h1>
-
-                  <div class="artist-row">
-                    <img
-                      src="artist.jpg"
-                      alt="Pinguini Tattici Nucleari"
-                      class="artist-avatar"
-                    />
-                    <div>
-                      <div class="meta">Pinguini Tattici Nucleari</div>
-                      <div class="meta">
-                        Uscita: <strong>2017</strong> ·
-                        <strong>12 brani</strong> ·
-                        <strong>53:20</strong>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="controls">
-                    <button
-                      class="btn btn-dark btn-play"
-                      title="Play"
-                      style="background: #1db954; border: none"
-                    >
-                      <i
-                        class="bi bi-play-fill"
-                        style="font-size: 1.4rem; color: #fff"
-                      ></i>
-                    </button>
-
-                    <button
-                      class="btn btn-outline-light custom"
-                      title="Mi piace"
-                    >
-                      <i class="bi bi-heart"></i>
-                    </button>
-
-                    <button class="btn btn-outline-light custom" title="Altro">
-                      <i class="bi bi-three-dots"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- LISTA TRACCE -->
-              <div
-                style="
-                  background: linear-gradient(
-                    to bottom,
-                    #dfc050 -20%,
-                    #000000 25%
-                  );
-                "
-                class="album-list"
-              >
-                <div class="list-header">
-                  <div class="d-flex align-items-center gap-3">
-                    <div
-                      style="
-                        width: 40px;
-                        text-align: center;
-                        color: rgba(255, 255, 255, 0.75);
-                      "
-                    >
-                      #
-                    </div>
-                    <div style="min-width: 200px">Titolo</div>
-                  </div>
-                  <div style="display: flex; gap: 2rem; align-items: center">
-                    <div
-                      style="
-                        width: 180px;
-                        text-align: center;
-                        color: rgba(255, 255, 255, 0.75);
-                      "
-                    >
-                      Riproduzioni
-                    </div>
-                    <div
-                      style="
-                        width: 70px;
-                        text-align: right;
-                        color: rgba(255, 255, 255, 0.75);
-                      "
-                    >
-                      Durata
-                    </div>
-                  </div>
-                </div>
-
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <div class="track-number">1</div>
-
-                    <div class="track-main ms-2">
-                      <div class="track-title">Montanelli - Intro</div>
-                      <div class="track-sub">Pinguini Tattici Nucleari</div>
-                    </div>
-
-                    <div class="track-plays">694.578</div>
-
-                    <div class="track-duration me-3">1:28</div>
-                  </li>
-
-                  <li class="list-group-item">
-                    <div class="track-number">2</div>
-
-                    <div class="track-main ms-2">
-                      <div class="track-title">Sciare</div>
-                      <div class="track-sub">Pinguini Tattici Nucleari</div>
-                    </div>
-
-                    <div class="track-plays">5.585.178</div>
-
-                    <div class="track-duration me-3">4:41</div>
-                  </li>
-
-                  <li class="list-group-item">
-                    <div class="track-number">3</div>
-
-                    <div class="track-main ms-2">
-                      <div class="track-title">Gioventù Brucata</div>
-                      <div class="track-sub">Pinguini Tattici Nucleari</div>
-                    </div>
-
-                    <div class="track-plays">3.412.342</div>
-
-                    <div class="track-duration me-3">5:24</div>
-                  </li>
-
-                  <li class="list-group-item">
-                    <div class="track-number">4</div>
-
-                    <div class="track-main ms-2">
-                      <div class="track-title">
-                        Ninnananna per genitori disattenti
-                      </div>
-                      <div class="track-sub">Pinguini Tattici Nucleari</div>
-                    </div>
-
-                    <div class="track-plays">2.365.629</div>
-
-                    <div class="track-duration me-3">4:04</div>
-                  </li>
-
-                  <li class="list-group-item">
-                    <div class="track-number">5</div>
-
-                    <div class="track-main ms-2">
-                      <div class="track-title">L’uomo che inventò il fuoco</div>
-                      <div class="track-sub">Pinguini Tattici Nucleari</div>
-                    </div>
-
-                    <div class="track-plays">3.417.862</div>
-
-                    <div class="track-duration me-3">5:23</div>
-                  </li>
-
-                  <li class="list-group-item">
-                    <div class="track-number">6</div>
-
-                    <div class="track-main ms-2">
-                      <div class="track-title">Irene</div>
-                      <div class="track-sub">Pinguini Tattici Nucleari</div>
-                    </div>
-
-                    <div class="track-plays">17.249.689</div>
-
-                    <div class="track-duration me-3">5:11</div>
-                  </li>
-
-                  <li class="list-group-item">
-                    <div class="track-number">7</div>
-
-                    <div class="track-main ms-2">
-                      <div class="track-title">Senti che cantare questi!</div>
-                      <div class="track-sub">Pinguini Tattici Nucleari</div>
-                    </div>
-
-                    <div class="track-plays">760.496</div>
-
-                    <div class="track-duration me-3">1:11</div>
-                  </li>
-
-                  <li class="list-group-item">
-                    <div class="track-number">8</div>
-
-                    <div class="track-main ms-2">
-                      <div class="track-title">Pula</div>
-                      <div class="track-sub">Pinguini Tattici Nucleari</div>
-                    </div>
-
-                    <div class="track-plays">899.318</div>
-
-                    <div class="track-duration me-3">5:46</div>
-                  </li>
-                </ul>
+            <div class="user-profile d-flex align-items-center">
+              <div class="dropdown">
+                <button
+                  class="btn btn-dark dropdown-toggle d-flex align-items-center"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                >
+                  <div
+                    class="profile-pic bg-secondary rounded-circle me-2"
+                  ></div>
+                  <span>Lidia Nautilus</span>
+                </button>
               </div>
             </div>
           </div>
-        </div>
+          <div class="album-top">
+            <img
+              src="album-cover.jpg"
+              alt="Copertina Gioventù brucata"
+              class="cover"
+            />
 
-        <!-- SIDEBAR DESTRA - Caricata dinamicamente -->
-        <div id="sidebar-right-container"></div>
+            <div class="album-info flex-grow-1">
+              <h1>Gioventù brucata</h1>
+
+              <div class="artist-row">
+                <img
+                  src="artist.jpg"
+                  alt="Pinguini Tattici Nucleari"
+                  class="artist-avatar"
+                />
+                <div>
+                  <div class="meta">Pinguini Tattici Nucleari</div>
+                  <div class="meta">
+                    Uscita: <strong>2017</strong> · <strong>12 brani</strong> ·
+                    <strong>53:20</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="controls">
+                <button
+                  class="btn btn-dark btn-play"
+                  title="Play"
+                  style="background: #1db954; border: none"
+                >
+                  <i
+                    class="bi bi-play-fill"
+                    style="font-size: 1.4rem; color: #fff"
+                  ></i>
+                </button>
+
+                <button class="btn btn-outline-light custom" title="Mi piace">
+                  <i class="bi bi-heart"></i>
+                </button>
+
+                <button class="btn btn-outline-light custom" title="Altro">
+                  <i class="bi bi-three-dots"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- LISTA TRACCE -->
+          <div
+            style="
+              background: linear-gradient(to bottom, #dfc050 -20%, #000000 25%);
+            "
+            class="album-list"
+          >
+            <div class="list-header">
+              <div class="d-flex align-items-center gap-3">
+                <div
+                  style="
+                    width: 40px;
+                    text-align: center;
+                    color: rgba(255, 255, 255, 0.75);
+                  "
+                >
+                  #
+                </div>
+                <div style="min-width: 200px">Titolo</div>
+              </div>
+              <div style="display: flex; gap: 2rem; align-items: center">
+                <div
+                  style="
+                    width: 180px;
+                    text-align: center;
+                    color: rgba(255, 255, 255, 0.75);
+                  "
+                >
+                  Riproduzioni
+                </div>
+                <div
+                  style="
+                    width: 70px;
+                    text-align: right;
+                    color: rgba(255, 255, 255, 0.75);
+                  "
+                >
+                  Durata
+                </div>
+              </div>
+            </div>
+
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div class="track-number">1</div>
+
+                <div class="track-main ms-2">
+                  <div class="track-title">Montanelli - Intro</div>
+                  <div class="track-sub">Pinguini Tattici Nucleari</div>
+                </div>
+
+                <div class="track-plays">694.578</div>
+
+                <div class="track-duration me-3">1:28</div>
+              </li>
+
+              <li class="list-group-item">
+                <div class="track-number">2</div>
+
+                <div class="track-main ms-2">
+                  <div class="track-title">Sciare</div>
+                  <div class="track-sub">Pinguini Tattici Nucleari</div>
+                </div>
+
+                <div class="track-plays">5.585.178</div>
+
+                <div class="track-duration me-3">4:41</div>
+              </li>
+
+              <li class="list-group-item">
+                <div class="track-number">3</div>
+
+                <div class="track-main ms-2">
+                  <div class="track-title">Gioventù Brucata</div>
+                  <div class="track-sub">Pinguini Tattici Nucleari</div>
+                </div>
+
+                <div class="track-plays">3.412.342</div>
+
+                <div class="track-duration me-3">5:24</div>
+              </li>
+
+              <li class="list-group-item">
+                <div class="track-number">4</div>
+
+                <div class="track-main ms-2">
+                  <div class="track-title">
+                    Ninnananna per genitori disattenti
+                  </div>
+                  <div class="track-sub">Pinguini Tattici Nucleari</div>
+                </div>
+
+                <div class="track-plays">2.365.629</div>
+
+                <div class="track-duration me-3">4:04</div>
+              </li>
+
+              <li class="list-group-item">
+                <div class="track-number">5</div>
+
+                <div class="track-main ms-2">
+                  <div class="track-title">L’uomo che inventò il fuoco</div>
+                  <div class="track-sub">Pinguini Tattici Nucleari</div>
+                </div>
+
+                <div class="track-plays">3.417.862</div>
+
+                <div class="track-duration me-3">5:23</div>
+              </li>
+
+              <li class="list-group-item">
+                <div class="track-number">6</div>
+
+                <div class="track-main ms-2">
+                  <div class="track-title">Irene</div>
+                  <div class="track-sub">Pinguini Tattici Nucleari</div>
+                </div>
+
+                <div class="track-plays">17.249.689</div>
+
+                <div class="track-duration me-3">5:11</div>
+              </li>
+
+              <li class="list-group-item">
+                <div class="track-number">7</div>
+
+                <div class="track-main ms-2">
+                  <div class="track-title">Senti che cantare questi!</div>
+                  <div class="track-sub">Pinguini Tattici Nucleari</div>
+                </div>
+
+                <div class="track-plays">760.496</div>
+
+                <div class="track-duration me-3">1:11</div>
+              </li>
+
+              <li class="list-group-item">
+                <div class="track-number">8</div>
+
+                <div class="track-main ms-2">
+                  <div class="track-title">Pula</div>
+                  <div class="track-sub">Pinguini Tattici Nucleari</div>
+                </div>
+
+                <div class="track-plays">899.318</div>
+
+                <div class="track-duration me-3">5:46</div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- SIDEBAR DESTRA - Caricata dinamicamente -->
+    <div id="sidebar-right-container"></div>
 
     <!-- PLAYER MUSICALE - Caricato dinamicamente -->
     <div id="player-container"></div>
