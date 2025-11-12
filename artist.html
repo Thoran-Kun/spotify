@@ -13,20 +13,115 @@
     <link rel="stylesheet" href="assets/css/circular-font.css" />
     <link rel="stylesheet" href="assets/css/common.css" />
     <link rel="stylesheet" href="assets/css/main-content.css" />
+    <link rel="stylesheet" href="assets/css/artist.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
   </head>
-  <body class="bg-black text-white">
+  <body class="bg-black text-white artist-page">
     <div class="container-fluid p-0">
       <div class="row g-0 min-vh-100">
         <!-- SIDEBAR SINISTRA - Caricata dinamicamente -->
         <div id="sidebar-left-container"></div>
 
         <!-- CONTENUTO PRINCIPALE CENTRALE - ARTIST PAGE -->
-        <div class="col-7 main-content">
-          
+        <div class="col-12 col-md-9 col-lg-7 main-content">
+          <div class="content-wrapper">
+            <!-- Hero Section Artist -->
+            <div class="artist-hero">
+              <!-- Overlay scuro -->
+              <div class="artist-hero-overlay"></div>
+
+              <!-- Navigazione -->
+              <div class="artist-hero-nav">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-4"
+                >
+                  <div class="nav-arrows">
+                    <button class="btn rounded-circle me-2" title="Go back">
+                      <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="btn rounded-circle" title="Go forward">
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                  <div class="user-profile">
+                    <button class="btn d-flex align-items-center">
+                      <div
+                        class="profile-pic bg-secondary rounded-circle me-2"
+                      ></div>
+                      <span>Lidia Nautilus</span>
+                      <i class="fas fa-caret-down ms-2"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Artist Info -->
+              <div class="artist-info">
+                <div class="d-flex align-items-center mb-2">
+                  <i class="fas fa-check-circle text-info me-2"></i>
+                  <span class="artist-verified">Artista verificato</span>
+                </div>
+                <h1 class="artist-name">Yellowcard</h1>
+                <p class="artist-listeners">3.433.158 ascoltatori mensili</p>
+              </div>
+            </div>
+
+            <!-- Resto del contenuto artist -->
+
+            <!-- Play Controls -->
+            <div class="artist-controls d-flex align-items-center gap-3 mb-5">
+              <button class="btn-play rounded-circle" title="Play">
+                <i class="fas fa-play"></i>
+              </button>
+              <button class="btn-following rounded-pill">FOLLOWING</button>
+              <button class="btn-more" title="More options">
+                <i class="fas fa-ellipsis-h"></i>
+              </button>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="row g-5 align-items-start">
+              <!-- Sezione Popolari (sinistra) -->
+              <div class="col-12 col-lg-7">
+                <h2 class="section-title mb-4">Popolari</h2>
+
+                <!-- Lista canzoni popolari - Popolata dinamicamente -->
+                <div class="popular-songs">
+                  <!-- I brani verranno caricati dinamicamente tramite JavaScript -->
+                </div>
+
+                <a href="#" class="show-all d-inline-block mt-4"
+                  >VISUALIZZA ALTRO</a
+                >
+              </div>
+
+              <!-- Sezione Brani che ti piacciono (destra) -->
+              <div class="col-12 col-lg-5">
+                <h2 class="section-title mb-4">Brani che ti piacciono</h2>
+
+                <!-- Popolato dinamicamente -->
+                <div class="liked-song-item d-flex align-items-center">
+                  <div class="liked-song-avatar position-relative me-3">
+                    <img
+                      src=""
+                      alt=""
+                      class="rounded-circle liked-artist-img"
+                    />
+                    <i class="fas fa-heart liked-heart-badge"></i>
+                  </div>
+                  <div>
+                    <div class="liked-song-title">
+                      Hai messo Mi piace a 11 brani
+                    </div>
+                    <div class="liked-song-artist"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- SIDEBAR DESTRA - Caricata dinamicamente -->
@@ -44,5 +139,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="assets/js/components-loader.js"></script>
+    <script src="artist-api.js"></script>
+    <script src="artist.js"></script>
   </body>
 </html>
