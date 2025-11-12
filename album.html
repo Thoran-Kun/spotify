@@ -59,13 +59,135 @@
 
             <!-- CONTENUTO ALBUM - DA COMPLETARE -->
             <div class="album-page-content">
-              <h1 class="display-4 mb-4">Album Page</h1>
-              <p class="text-white-50">
-                Contenuto dell'album da implementare...
-              </p>
+              <div class="album-hero d-flex align-items-end gap-4 mb-4" style="background: linear-gradient(180deg, rgba(255,200,60,0.25), rgba(0,0,0,0.6)); padding: 2.5rem; border-radius: .5rem;">
+                <div class="album-art" style="width: 180px; flex: 0 0 180px;">
+                  <img src="https://via.placeholder.com/180" alt="Copertina album" class="img-fluid rounded" style="width:100%; height:auto; box-shadow: 0 6px 18px rgba(0,0,0,.6);">
+                </div>
+
+                <div class="album-meta text-white d-flex flex-column justify-content-end" style="flex:1;">
+                  <div class="album-type text-uppercase small mb-1 text-white">Album</div>
+                  <h1 class="display-4 fw-bold mb-2" style="font-family: 'Circular Spotify Text', 'Arial Rounded MT Bold', sans-serif;">Gioventù brucata</h1>
+                  <div class="album-sub mb-2 text-white-50">
+                    <strong>Pinguini Tattici Nucleari</strong> · 2017 · 12 brani · 53 min, 20 sec
+                  </div>
+
+                  <div class="album-actions d-flex align-items-center gap-2 mt-3">
+                    <button class="btn btn-success btn-lg rounded-circle d-flex align-items-center justify-content-center" title="Play" aria-label="Play" style="width:56px; height:56px;">
+                      <i class="fas fa-play"></i>
+                    </button>
+
+                    <button class="btn btn-outline-light rounded-circle" title="Aggiungi ai preferiti" aria-label="Aggiungi ai preferiti">
+                      <i class="far fa-heart"></i>
+                    </button>
+
+                    <button class="btn btn-outline-light rounded-circle" title="Scarica" aria-label="Scarica">
+                      <i class="fas fa-download"></i>
+                    </button>
+
+                    <button class="btn btn-outline-light" title="Altro" aria-label="Altro">
+                      <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="album-tracks bg-dark rounded p-3">
+                <div class="table-responsive">
+                  <table class="table table-borderless table-dark mb-0 bg-dark">
+                    <thead>
+                      <tr class="text-muted small">
+                        <th style="width:40px">#</th>
+                        <th >Titolo</th>
+                        <th style="width:160px" class="text-end">Riproduzioni</th>
+                        <th style="width:80px" class="text-end">Durata</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="align-middle track-row">
+                        <td class="text-muted">1</td>
+                        <td>
+                          <div class="track-title fw-bold">Montanelli - Intro</div>
+                          <div class="text-muted small">Pinguini Tattici Nucleari</div>
+                        </td>
+                        <td class="text-end text-muted">694.578</td>
+                        <td class="text-end text-muted">1:28</td>
+                      </tr>
+
+                      <tr class="align-middle track-row">
+                        <td class="text-muted">2</td>
+                        <td>
+                          <div class="track-title fw-bold">Sciare</div>
+                          <div class="text-muted small">Pinguini Tattici Nucleari</div>
+                        </td>
+                        <td class="text-end text-muted">5.585.178</td>
+                        <td class="text-end text-muted">4:41</td>
+                      </tr>
+
+                      <tr class="align-middle track-row">
+                        <td class="text-muted">3</td>
+                        <td>
+                          <div class="track-title fw-bold">Gioventù brucata</div>
+                          <div class="text-muted small">Pinguini Tattici Nucleari</div>
+                        </td>
+                        <td class="text-end text-muted">3.412.342</td>
+                        <td class="text-end text-muted">5:24</td>
+                      </tr>
+
+                      <tr class="align-middle track-row">
+                        <td class="text-muted">4</td>
+                        <td>
+                          <div class="track-title fw-bold">Ninnananna per genitori disattenti</div>
+                          <div class="text-muted small">Pinguini Tattici Nucleari</div>
+                        </td>
+                        <td class="text-end text-muted">2.365.629</td>
+                        <td class="text-end text-muted">4:04</td>
+                      </tr>
+
+                      <tr class="align-middle track-row">
+                        <td class="text-muted">5</td>
+                        <td>
+                          <div class="track-title fw-bold">L'uomo che inventò il fuoco</div>
+                          <div class="text-muted small">Pinguini Tattici Nucleari</div>
+                        </td>
+                        <td class="text-end text-muted">3.417.862</td>
+                        <td class="text-end text-muted">5:23</td>
+                      </tr>
+
+                      <!-- Altri brani di esempio -->
+                      <tr class="align-middle track-row">
+                        <td class="text-muted">6</td>
+                        <td>
+                          <div class="track-title fw-bold">Irene</div>
+                          <div class="text-muted small">Pinguini Tattici Nucleari</div>
+                        </td>
+                        <td class="text-end text-muted">17.249.689</td>
+                        <td class="text-end text-muted">5:11</td>
+                      </tr>
+
+                      <tr class="align-middle track-row">
+                        <td class="text-muted">7</td>
+                        <td>
+                          <div class="track-title fw-bold">Senti che cantare questi!</div>
+                          <div class="text-muted small">Pinguini Tattici Nucleari</div>
+                        </td>
+                        <td class="text-end text-muted">760.496</td>
+                        <td class="text-end text-muted">1:11</td>
+                      </tr>
+
+                      <tr class="align-middle track-row">
+                        <td class="text-muted">8</td>
+                        <td>
+                          <div class="track-title fw-bold">Pula</div>
+                          <div class="text-muted small">Pinguini Tattici Nucleari</div>
+                        </td>
+                        <td class="text-end text-muted">899.318</td>
+                        <td class="text-end text-muted">5:46</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
         <!-- SIDEBAR DESTRA - Caricata dinamicamente -->
         <div id="sidebar-right-container"></div>
