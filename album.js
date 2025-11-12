@@ -1,5 +1,5 @@
-const Album = function(){
-	return `
+const Album = function () {
+  return `
           <div class="content-wrapper p-4">
             <!-- Header con navigazione -->
             <div
@@ -10,6 +10,7 @@ const Album = function(){
                   class="btn btn-dark rounded-circle me-2"
                   title="Torna indietro"
                   aria-label="Torna indietro"
+                  onclick="indietro()"
                 >
                   <i class="fas fa-chevron-left"></i>
                 </button>
@@ -17,30 +18,16 @@ const Album = function(){
                   class="btn btn-dark rounded-circle"
                   title="Vai avanti"
                   aria-label="Vai avanti"
+                  onclick="avanti()"
                 >
                   <i class="fas fa-chevron-right"></i>
                 </button>
               </div>
 
-              <div class="user-profile d-flex align-items-center">
-                <div class="dropdown">
-                  <button
-                    class="btn btn-dark dropdown-toggle d-flex align-items-center"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                  >
-                    <div
-                      class="profile-pic bg-secondary rounded-circle me-2"
-                    ></div>
-                    <span>Lidia Nautilus</span>
-                  </button>
-                </div>
-              </div>
-            </div>
 
             <!-- CONTENUTO ALBUM - DA COMPLETARE -->
             <div class="album-page-content">
-              <h1 class="display-4 mb-4">Album Page</h1>
+              <h1 class="display-4 mb-4">${currentAlbum.title}</h1>
               <p class="text-white-50">
               </p>
 
@@ -72,5 +59,5 @@ const Album = function(){
               </div>
             </div>
           </div>
-	  `
-}
+	  `;
+};

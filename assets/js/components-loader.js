@@ -1,43 +1,6 @@
-/**
- * ========================================
- * COMPONENT LOADER - Spotify Clone
- * ========================================
- *
- * Questo file carica automaticamente i componenti comuni (sidebar e player)
- * in tutte le pagine del sito, evitando di duplicare codice HTML e CSS.
- *
- * COSA FA:
- * 1. Carica i CSS dei componenti (sidebar-left.css, sidebar-right.css, player.css)
- * 2. Carica sidebar-left.html nella pagina
- * 3. Carica sidebar-right.html nella pagina
- * 4. Carica player.html nella pagina
- * 5. Evidenzia automaticamente il link della pagina corrente nel menu
- *
- * COME USARLO:
- * Aggiungi questo script in OGNI pagina HTML prima del tag </body>:
- * <script src="assets/js/components-loader.js"></script>
- *
- * REQUISITI:
- * - Ogni pagina deve avere questi 3 div vuoti:
- *   <div id="sidebar-left-container"></div>
- *   <div id="sidebar-right-container"></div>
- *   <div id="player-container"></div>
- *
- * - Devi usare Live Server o un server locale (fetch non funziona senza server)
- */
-
-// ========================================
-// FUNZIONE 1: Carica un CSS component
-// ========================================
-/**
- * Questa funzione carica dinamicamente un file CSS nella pagina
- *
- * @param {string} cssPath - Percorso del file CSS (es: "components/sidebar-left.css")
- * @param {string} id - ID univoco per il tag <link> (es: "sidebar-left-css")
- */
 function loadCSS(cssPath, id) {
-  // Verifica se il CSS è già stato caricato
   if (document.getElementById(id)) {
+<<<<<<< HEAD
     console.log(`⚠️ CSS già caricato: ${cssPath}`)
     return
   }
@@ -51,35 +14,46 @@ function loadCSS(cssPath, id) {
   // Aggiungi il <link> al <head>
   document.head.appendChild(link)
   console.log(`✅ CSS caricato: ${cssPath}`)
+=======
+    return;
+  }
+
+  const link = document.createElement("link");
+  link.id = id;
+  link.rel = "stylesheet";
+  link.href = cssPath;
+
+  document.head.appendChild(link);
+>>>>>>> 6c3063e4914efc2a1074451796d116bc622acf12
 }
 
-// ========================================
-// FUNZIONE 2: Carica un componente HTML
-// ========================================
-/**
- * Questa funzione prende un file HTML e lo inserisce dentro un elemento della pagina
- *
- * @param {string} componentPath - Percorso del file da caricare (es: "components/sidebar-left.html")
- * @param {string} targetId - ID dell'elemento dove inserire il contenuto (es: "sidebar-left-container")
- */
 async function loadComponent(componentPath, targetId) {
   try {
+<<<<<<< HEAD
     // 1. Scarica il file HTML dal server
     const response = await fetch(componentPath)
+=======
+    const response = await fetch(componentPath);
+>>>>>>> 6c3063e4914efc2a1074451796d116bc622acf12
 
-    // 2. Controlla se il file è stato trovato
     if (!response.ok) {
       throw new Error(`Errore HTTP! status: ${response.status}`)
     }
 
+<<<<<<< HEAD
     // 3. Leggi il contenuto HTML del file
     const html = await response.text()
 
     // 4. Trova l'elemento nella pagina dove inserire il contenuto
     const targetElement = document.getElementById(targetId)
+=======
+    const html = await response.text();
 
-    // 5. Se l'elemento esiste, inserisci il contenuto HTML
+    const targetElement = document.getElementById(targetId);
+>>>>>>> 6c3063e4914efc2a1074451796d116bc622acf12
+
     if (targetElement) {
+<<<<<<< HEAD
       targetElement.innerHTML = html
       console.log(`✅ Caricato: ${componentPath}`)
     } else {
@@ -91,23 +65,21 @@ async function loadComponent(componentPath, targetId) {
     console.error(
       `💡 Suggerimento: Stai usando Live Server o un server locale?`
     )
+=======
+      targetElement.innerHTML = html;
+    } else {
+    }
+  } catch (error) {
+    console.error(` Errore nel caricamento di ${componentPath}:`, error);
+    console.error(`Suggerimento: Stai usando Live Server o un server locale?`);
+>>>>>>> 6c3063e4914efc2a1074451796d116bc622acf12
   }
 }
 
-// ========================================
-// FUNZIONE 3: Evidenzia pagina attiva
-// ========================================
-/**
- * Questa funzione trova la pagina corrente e evidenzia il link corrispondente
- * nel menu della sidebar sinistra aggiungendo la classe "active"
- */
 function setActivePage() {
-  // 1. Ottieni il nome del file della pagina corrente (es: "homepage.html")
   const currentPage =
     window.location.pathname.split("/").pop() || "homepage.html"
 
-  // 2. Mappa i nomi file agli ID delle pagine nel menu
-  // IMPORTANTE: Se aggiungi nuove pagine, aggiungile qui!
   const pageMap = {
     "homepage.html": "home",
     "album.html": "album",
@@ -115,53 +87,68 @@ function setActivePage() {
     "search.html": "search",
   }
 
+<<<<<<< HEAD
   // 3. Trova l'ID della pagina corrente (default: "home")
   const currentPageId = pageMap[currentPage] || "home"
 
   console.log(`📄 Pagina corrente: ${currentPage} (ID: ${currentPageId})`)
+=======
+  const currentPageId = pageMap[currentPage] || "home";
 
-  // 4. Aspetta 100ms che la sidebar sia caricata, poi evidenzia il link
+  console.log(`Pagina corrente: ${currentPage} (ID: ${currentPageId})`);
+>>>>>>> 6c3063e4914efc2a1074451796d116bc622acf12
+
   setTimeout(() => {
+<<<<<<< HEAD
     // Trova tutti i link del menu nella sidebar sinistra
     const navLinks = document.querySelectorAll(".sidebar-left .nav-link")
+=======
+    const navLinks = document.querySelectorAll(".sidebar-left .nav-link");
+>>>>>>> 6c3063e4914efc2a1074451796d116bc622acf12
 
-    // Per ogni link del menu
     navLinks.forEach((link) => {
+<<<<<<< HEAD
       // Rimuovi la classe "active" da tutti i link
       link.classList.remove("active")
+=======
+      link.classList.remove("active");
+>>>>>>> 6c3063e4914efc2a1074451796d116bc622acf12
 
-      // Se il link corrisponde alla pagina corrente, aggiungi "active"
       if (link.getAttribute("data-page") === currentPageId) {
+<<<<<<< HEAD
         link.classList.add("active")
         console.log(`✅ Link evidenziato: ${link.textContent.trim()}`)
+=======
+        link.classList.add("active");
+>>>>>>> 6c3063e4914efc2a1074451796d116bc622acf12
       }
     })
   }, 100)
 }
 
-// ========================================
-// AVVIO AUTOMATICO AL CARICAMENTO PAGINA
-// ========================================
-/**
- * Quando la pagina è completamente caricata (DOM ready),
- * esegui automaticamente il caricamento dei componenti
- */
 document.addEventListener("DOMContentLoaded", async () => {
+<<<<<<< HEAD
   console.log("🚀 Avvio Component Loader...")
 
   // 1. Carica i CSS dei componenti PRIMA dell'HTML
   loadCSS("assets/css/sidebar-left.css", "sidebar-left-css")
   loadCSS("assets/css/sidebar-right.css", "sidebar-right-css")
   loadCSS("assets/css/player.css", "player-css")
+=======
+  console.log(" Avvio Component Loader...");
 
-  // 2. Carica TUTTI i componenti HTML in parallelo (più veloce!)
-  //    Promise.all aspetta che tutti e 3 i componenti siano caricati
+  loadCSS("assets/css/sidebar-left.css", "sidebar-left-css");
+  loadCSS("assets/css/sidebar-right.css", "sidebar-right-css");
+  loadCSS("assets/css/player.css", "player-css");
+>>>>>>> 6c3063e4914efc2a1074451796d116bc622acf12
+
   await Promise.all([
     loadComponent("components/sidebar-left.html", "sidebar-left-container"),
     loadComponent("components/sidebar-right.html", "sidebar-right-container"),
     loadComponent("components/player.html", "player-container"),
   ])
 
+<<<<<<< HEAD
   // 3. Dopo che i componenti sono caricati, evidenzia la pagina attiva
   setActivePage()
 
@@ -199,3 +186,7 @@ document.addEventListener("DOMContentLoaded", async () => {
  * - "Link non si evidenzia?" → Controlla pageMap e data-page
  * - "Console mostra errori?" → Controlla i percorsi dei file
  */
+=======
+  setActivePage();
+});
+>>>>>>> 6c3063e4914efc2a1074451796d116bc622acf12
