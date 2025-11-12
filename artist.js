@@ -157,3 +157,6 @@ const initArtistPage = async () => {
 
 // Initialize when DOM is ready
 document.addEventListener("DOMContentLoaded", initArtistPage);
+
+const switchTo = index => window.location.href = `/?page=${index}`
+

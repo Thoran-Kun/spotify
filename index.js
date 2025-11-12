@@ -1,10 +1,21 @@
 // buonasera
-
 let index = 0;
+
+
+
+
+const Artist = function(){
+	window.location.href = `/artist.html?id=${currentAlbum.artist.id}`;
+}
+
 let pagine = [
   Home, // -> 0
-  Album, // ->  1
+  Artist, // ->  1
+  Album, // ->  2
 ];
+// artist?id=1231293
+
+
 
 const avanti = function () {
   index += 1;
@@ -17,8 +28,30 @@ const indietro = function () {
   render();
 };
 
+
+const loadIndex = function (){
+	const params = new URLSearchParams(window.location.search);
+	const page = params.get('page');
+	if (page !== null) {
+		index = page;
+	} 
+}
+
 const render = function () {
+  
   const main = document.getElementById("main");
-  main.innerHTML = pagine[index]();
+  try{ 
+	main.innerHTML = pagine[index]();
+  } catch(err){
+	// FIXME pagina ops qualcosa `e andato storto
+	console.error('qualcosa e` andato storto');
+  }
 };
-render();
+const init = async function(){
+	await getAlbum(75621062);
+	loadIndex();
+	render();
+}
+init()
+
+
