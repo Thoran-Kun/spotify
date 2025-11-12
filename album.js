@@ -10,7 +10,7 @@ const Album = function () {
                   class="btn btn-dark rounded-circle me-2"
                   title="Torna indietro"
                   aria-label="Torna indietro"
-                  onclick="indietro()"
+		  onclick="indietro()"
                 >
                   <i class="fas fa-chevron-left"></i>
                 </button>
@@ -18,46 +18,164 @@ const Album = function () {
                   class="btn btn-dark rounded-circle"
                   title="Vai avanti"
                   aria-label="Vai avanti"
-                  onclick="avanti()"
+		  onclick="avanti()"
                 >
                   <i class="fas fa-chevron-right"></i>
                 </button>
               </div>
 
+              <div class="user-profile d-flex align-items-center">
+                <div class="dropdown">
+                  <button
+                    class="btn btn-dark dropdown-toggle d-flex align-items-center"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                  >
+                    <div
+                      class="profile-pic bg-secondary rounded-circle me-2"
+                    ></div>
+                    <span>Lidia Nautilus</span>
+                  </button>
+                </div>
+              </div>
+            </div>
 
-            <!-- CONTENUTO ALBUM - DA COMPLETARE -->
-            <div class="album-page-content">
-              <h1 class="display-4 mb-4">${currentAlbum.title}</h1>
-              <p class="text-white-50">
-              </p>
+            <!-- CONTENUTO ALBUM - HERO SUPERIORE -->
+            <div class="album-section">
+              <!-- TOP -->
+              <div class="album-top">
+                <img
+                  src="${currentAlbum.cover}"
+                  class="cover"
+                />
 
-              <!-- Placeholder per Hero Album -->
-              <div class="album-hero mb-5">
-                <div class="alert alert-secondary" role="alert">
-                  <i class="fas fa-compact-disc me-2"></i>
-                  <strong>Sezione Hero Album:</strong> Cover, titolo, artista,
-                  anno, durata totale
+                <div class="album-info flex-grow-1">
+                  <h1>${currentAlbum.title}</h1>
+
+                  <div class="artist-row">
+                    <img
+                      src="${currentAlbum.artist.picture_small}"
+                      class="artist-avatar"
+                    />
+                    <div>
+                      <div class="meta">${currentAlbum.artist.name}</div>
+                      <div class="meta">
+                        Uscita: <strong>2017</strong> ·
+                        <strong>12 brani</strong> ·
+                        <strong>53:20</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="controls">
+                    <button
+                      class="btn btn-dark btn-play"
+                      title="Play"
+                      style="background: #1db954; border: none"
+                    >
+                      <i
+                        class="bi bi-play-fill"
+                        style="font-size: 1.4rem; color: #fff"
+                      ></i>
+                    </button>
+
+                    <button
+                      class="btn btn-outline-light custom"
+                      title="Mi piace"
+                    >
+                      <i class="bi bi-heart"></i>
+                    </button>
+
+                    <button class="btn btn-outline-light custom" title="Altro">
+                      <i class="bi bi-three-dots"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
 
-              <!-- Placeholder per Lista Brani -->
-              <div class="album-tracklist mb-5">
-                <div class="alert alert-secondary" role="alert">
-                  <i class="fas fa-list-ol me-2"></i>
-                  <strong>Lista Tracce:</strong> Tabella con numero, titolo,
-                  durata, pulsante play
+              <!-- LISTA TRACCE -->
+              <div
+                style="
+                  background: linear-gradient(
+                    to bottom,
+                    #dfc050 -20%,
+                    #000000 25%
+                  );
+                "
+                class="album-list"
+              >
+                <div class="list-header">
+                  <div class="d-flex align-items-center gap-3">
+                    <div
+                      style="
+                        width: 40px;
+                        text-align: center;
+                        color: rgba(255, 255, 255, 0.75);
+                      "
+                    >
+                      #
+                    </div>
+                    <div style="min-width: 200px">Titolo</div>
+                  </div>
+                  <div style="display: flex; gap: 2rem; align-items: center">
+                    <div
+                      style="
+                        width: 180px;
+                        text-align: center;
+                        color: rgba(255, 255, 255, 0.75);
+                      "
+                    >
+                      Riproduzioni
+                    </div>
+                    <div
+                      style="
+                        width: 70px;
+                        text-align: right;
+                        color: rgba(255, 255, 255, 0.75);
+                      "
+                    >
+                      Durata
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Placeholder per Altri Album -->
-              <div class="more-albums">
-                <div class="alert alert-secondary" role="alert">
-                  <i class="fas fa-music me-2"></i>
-                  <strong>Altri Album dell'Artista:</strong> Carousel o griglia
-                  di album correlati
-                </div>
+                <ul class="list-group">
+		${Tracklist()}
+                </ul>
               </div>
             </div>
           </div>
 	  `;
 };
+
+const Tracklist = function(){
+	let currentTracklist = ''
+	currentAlbum.tracks.data.forEach((track, i) =>{
+		currentTracklist += Track(track, i)	
+	})
+	return currentTracklist
+}
+
+// TODO convert
+const formatDuration = (seconds) => {
+	const minutes = Math.floor(seconds / 60);
+	const secs = seconds % 60;
+	return `${minutes}:${secs.toString().padStart(2, "0")}`;
+};
+
+const Track = function (track, i) {
+	return `
+                  <li class="list-group-item">
+                    <div class="track-number">${i+1}</div>
+
+                    <div class="track-main ms-2">
+                      <div class="track-title">${track.title}</div>
+                      <div class="track-sub"></div>
+                    </div>
+
+                    <div class="track-plays">${track.rank}</div>
+
+                    <div class="track-duration me-3">${formatDuration(track.duration)}</div>
+                  </li>
+	`
+}
