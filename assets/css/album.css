@@ -1,0 +1,206 @@
+:root {
+  --g1: #ffd84d;
+  --g2: #1b0f0b;
+  --g3: #c07a2f;
+}
+
+body {
+  background: #070707;
+  color: #e9ecef;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.album-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  /* top area gradient più colorata */
+  background: linear-gradient(
+    135deg,
+    var(--g1) 0%,
+
+    var(--g2) 100%
+  );
+}
+
+.album-top {
+  padding: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  color: #fff;
+}
+
+.cover {
+  width: 200px;
+  min-width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+.album-info h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.2px;
+}
+
+.album-info .meta {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+}
+
+.artist-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.artist-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+}
+
+.controls {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.btn-play {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.btn-outline-light.custom {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.album-list {
+  background: #070707;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 216, 77, 0.08) 0%,
+    rgba(27, 15, 11, 0.95) 55%,
+    rgba(192, 122, 47, 0.06) 100%
+  );
+  padding: 1rem;
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.list-group {
+  margin-top: 0.5rem;
+}
+
+.list-group-item {
+  background: transparent;
+  border: none;
+  color: #f8f9fa;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.list-group-item + .list-group-item {
+  margin-top: 0.35rem;
+}
+
+.track-number {
+  width: 40px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.track-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.track-title {
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-sub {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-plays {
+  width: 180px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.track-duration {
+  width: 70px;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.track-actions .btn {
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.list-group-item:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+@media (max-width: 768px) {
+  .album-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cover {
+    width: 160px;
+    min-width: 160px;
+  }
+  .btn-play {
+    width: 56px;
+    height: 56px;
+  }
+  .track-plays {
+    display: none;
+  }
+}

@@ -3,7 +3,7 @@
 /* ============================= */
 
 .main-content {
-  margin-left: calc(25% + 12px);
+  margin-left: calc(25%);
   margin-right: calc(16.666% + 12px);
   padding: 0;
 }
