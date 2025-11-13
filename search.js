@@ -27,7 +27,7 @@ const Search = function () {
               <!-- Search Bar -->
               <div class="search-bar-section mb-5">
                 <div class="input-group input-group-lg">
-                  <span class="input-group-text bg-dark border-0">
+                  <span class="input-group-text bg-dark border-0" onclick="cerca()" style="cursor: pointer;">
                     <i class="fas fa-search text-white-50"></i>
                   </span>
                   <input type="text" id="searchInput" class="form-control bg-dark text-white border-0" placeholder="Cosa vuoi ascoltare?" aria-label="Cerca brani, artisti o podcast">
@@ -129,7 +129,7 @@ const risultatiHtml = function (ris) {
   return `
       <div class="search-history-item" data-id="1763049238841">
         <div class="search-item-content">
-          <img src="${ris.album.cover_medium}" alt="vhjwbiuykjhdv" class="search-item-image ">
+          <img src="${ris.album.cover_small}" alt="vhjwbiuykjhdv" class="search-item-image ">
           <div class="search-item-info">
             <span class="search-item-type">${ris.artist.name}</span>
             <p class="search-item-name">${ris.title}</p>
