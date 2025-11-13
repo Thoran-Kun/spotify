@@ -3,7 +3,6 @@
 // ===========================
 // Chiamate API della pagina artista
 
-
 let currentArtist;
 
 /**
@@ -47,10 +46,19 @@ const getArtistTracks = async function (id) {
 
 /**
  * Create a link to artist page with ID parameter
- * Utility function usabile da altre pagine
+ * Uses router that automatically redirects to mobile or desktop version
  * @param {string|number} artistId - Artist ID
- * @returns {string} URL to artist page
+ * @returns {string} URL to artist router page
  */
 const createArtistLink = (artistId) => {
   return `artist.html?id=${artistId}`;
+};
+
+/**
+ * Navigate to artist page (router handles mobile/desktop)
+ * Use this function when clicking on artist links
+ * @param {string|number} artistId - Artist ID
+ */
+const goToArtist = (artistId) => {
+  window.location.href = `artist.html?id=${artistId}`;
 };

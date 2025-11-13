@@ -279,19 +279,171 @@
 }
 
 @media (max-width: 768px) {
+  /* Player compatto con sfondo solido */
+  .music-player {
+    height: 64px;
+    background-color: #282828;
+    border-top: none;
+    bottom: 110px; /* Spazio per la bottom nav più grande */
+  }
+
+  .music-player .container-fluid {
+    padding: 0;
+  }
+
+  .music-player .row {
+    padding: 8px 12px;
+  }
+
+  /* Layout orizzontale: immagine + titolo + icone */
+  .player-left {
+    padding-left: 0;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .current-song-image {
+    width: 48px;
+    height: 48px;
+    margin-right: 12px;
+  }
+
   .current-song-info {
+    display: block !important;
+    margin-right: 12px;
+  }
+
+  .current-song-info .artist-name {
     display: none;
+  }
+
+  .song-title {
+    font-size: 13px;
+  }
+
+  /* Nascondi il cuore nella sezione sinistra */
+  .player-left .heart-btn {
+    display: none;
+  }
+
+  /* Centro player - nasconde tutto */
+  .player-center {
+    display: none !important;
+  }
+
+  /* Destra - mostra cuore e play */
+  .player-right {
+    padding-right: 0;
+    width: auto;
+    display: flex !important;
+    gap: 12px !important;
+  }
+
+  .player-right > * {
+    display: none;
+  }
+
+  /* Crea nuovi bottoni nella sezione destra */
+  .player-right::before {
+    content: "\f004";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 400;
+    color: white;
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .player-right::after {
+    content: "\f04b";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: white;
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .volume-section {
+    display: none !important;
+  }
+
+  /* Riposiziona colonne */
+  .music-player .col-3,
+  .music-player .col-6 {
+    width: auto;
+  }
+
+  .music-player .col-6 {
     display: none;
   }
 
-  .control-btn:not(.play-pause-btn):not(.volume-btn) {
-    display: none;
+  .music-player .player-left {
+    flex: 1;
+  }
+}
+
+/* ============================= */
+/*   BOTTOM NAVIGATION MOBILE    */
+/* ============================= */
+
+.bottom-nav-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .bottom-nav-mobile {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.98) 15%,
+      rgba(0, 0, 0, 0.95) 30%,
+      rgba(0, 0, 0, 0.85) 45%,
+      rgba(0, 0, 0, 0.6) 60%,
+      rgba(0, 0, 0, 0.3) 75%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    padding: 12px 0 28px;
+    border-top: none;
+    z-index: 999;
+    height: 110px;
   }
 
-  .heart-btn {
-    display: none;
+  .nav-item-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 10px;
+    font-weight: 500;
+    padding: 0 24px;
+    transition: color 0.2s;
+    flex: 1;
+  }
+
+  .nav-item-mobile:hover,
+  .nav-item-mobile.active {
+    color: white;
+  }
+
+  .nav-item-mobile i {
+    font-size: 26px;
+    margin-bottom: 4px;
+  }
+
+  .nav-item-mobile span {
+    font-size: 11px;
   }
 }
