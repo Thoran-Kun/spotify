@@ -10,8 +10,12 @@ let pagine = [
   Artist, // ->  1
   Album, // ->  2
 ];
+let pagineMobile = [
+  Home, // -> 0
+  Artist, // ->  1
+  Album, // ->  2
+];
 // artist?id=1231293
-
 
 
 const avanti = function () {
@@ -38,7 +42,12 @@ const render = function () {
   
   const main = document.getElementById("main");
   try{ 
-	main.innerHTML = pagine[index]();
+	/* TODO quando `e grande telefono se siamo sotto quanti pixel del mobile */
+	if (window.innerWidth < 500){
+		main.innerHTML = pagineMobile[index]();
+	} else {
+		main.innerHTML = pagine[index]();
+	}
   } catch(err){
 	  console.log(err)
 	// FIXME pagina ops qualcosa `e andato storto
