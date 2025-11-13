@@ -1,4 +1,7 @@
 const Home = function () {
+  const image = (novita?.[0])? novita[0].album.cover:"assets/imgs/main/image-1.jpg"
+  const title = (novita?.[0])? novita[0].title:"VIOLA (feat. Salmo)"
+  const artist = (novita?.[0])? novita[0].artist.name:"Fedez, Salmo"
   return `
           <div class="content-wrapper p-4">
             <!-- Header con navigazione -->
@@ -41,16 +44,15 @@ const Home = function () {
                 <div class="row align-items-end">
                   <div class="col-auto">
                     <img
-                      src="assets/imgs/main/image-1.jpg"
-                      alt="VIOLA (feat. Salmo)"
+                      src="${image}"
                       class="album-cover"
                     />
                   </div>
                   <div class="col">
                     <div class="album-info">
                       <span class="album-badge">ALBUM</span>
-                      <h1 class="album-title">VIOLA (feat. Salmo)</h1>
-                      <p class="album-artist mb-2">Fedez, Salmo</p>
+                      <h1 class="album-title">${title}</h1>
+                      <p class="album-artist mb-2">${artist}</p>
                       <p class="album-description mb-3">
                         Ascolta il nuovo singolo di Fedez e Salmo!
                       </p>
@@ -83,58 +85,13 @@ const Home = function () {
               <h2 class="section-title mb-3">Buonasera</h2>
               <div class="row g-3">
                 <!-- Card 1 -->
-                <div class="col-4">
-                  <div class="playlist-card">
-                    <div class="d-flex align-items-center">
-                      <div class="playlist-img-grid">
-                        <img src="assets/imgs/main/image-2.jpg" alt="" />
-                        <img src="assets/imgs/main/image-3.jpg" alt="" />
-                        <img src="assets/imgs/main/image-4.jpg" alt="" />
-                        <img src="assets/imgs/main/image-5.jpg" alt="" />
-                      </div>
-                      <div class="playlist-info">
-                        <h6 class="playlist-title">
-                          early stage emily syndrome
-                        </h6>
-                        <small class="playlist-subtitle">(sett-ott 2022)</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+		${playlistCard(novita)}
 
                 <!-- Card 2 -->
-                <div class="col-4">
-                  <div class="playlist-card">
-                    <div class="d-flex align-items-center">
-                      <div class="playlist-img-grid">
-                        <img src="assets/imgs/main/image-6.jpg" alt="" />
-                        <img src="assets/imgs/main/image-7.jpg" alt="" />
-                        <img src="assets/imgs/main/image-8.jpg" alt="" />
-                        <img src="assets/imgs/main/image-9.jpg" alt="" />
-                      </div>
-                      <div class="playlist-info">
-                        <h6 class="playlist-title">Be The Young</h6>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+		${playlistCard(novita, 3)}
 
                 <!-- Card 3 -->
-                <div class="col-4">
-                  <div class="playlist-card">
-                    <div class="d-flex align-items-center">
-                      <div class="playlist-img-grid">
-                        <img src="assets/imgs/main/image-10.jpg" alt="" />
-                        <img src="assets/imgs/main/image-11.jpg" alt="" />
-                        <img src="assets/imgs/main/image-12.jpg" alt="" />
-                        <img src="assets/imgs/main/image-13.jpg" alt="" />
-                      </div>
-                      <div class="playlist-info">
-                        <h6 class="playlist-title">saggio vibes 🔥🅰️</h6>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+		${playlistCard(novita, 7)}
 
                 <!-- Card 4 - Brani che ti piacciono -->
                 <div class="col-4">
@@ -535,3 +492,48 @@ const Home = function () {
           </div>
 	`;
 };
+
+const playlistCard = function(data, index=0){
+	let images = []
+	/* TODO index out of range */
+
+	/* TODO fixare 
+	 * TypeError: Cannot read properties of undefined (reading 'album')
+         * at playlistCard (home.js:506:31)
+    	 * at Array.Home (home.js:89:5)
+         * at render (index.js:44:32)
+         * at <anonymous>:1:1
+	 * */
+	/* questo carica le image di failback*/
+	for (let i = 1; i <= 19; i++) {
+		images.push(`assets/imgs/main/image-${i}.jpg`)
+	}
+
+	/* cambia l'immagine se esiste nell'array dato*/
+	data?.forEach((data, i) => {
+		images[i] = data.album.cover_small
+	})
+
+	return `
+                <div class="col-4">
+                  <div class="playlist-card">
+                    <div class="d-flex align-items-center">
+                      <div class="playlist-img-grid">
+                        <img src="${images[index+0]}" alt="" />
+                        <img src="${images[index+1]}" alt="" />
+                        <img src="${images[index+2]}" alt="" />
+                        <img src="${images[index+3]}" alt="" />
+                      </div>
+                      <div class="playlist-info">
+                        <h6 class="playlist-title">
+                          early stage emily syndrome
+                        </h6>
+                        <small class="playlist-subtitle">(sett-ott 2022)</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+	`
+}
+
+/* on resize */
