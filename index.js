@@ -1,9 +1,9 @@
 // buonasera
 let index = 0;
 
-const Artist = function(){
-	window.location.href = `/artist.html?id=${currentAlbum.artist.id}`;
-}
+const Artist = function () {
+  window.location.href = `/artist.html?id=${currentAlbum.artist.id}`;
+};
 
 let pagine = [
   Home, // -> 0
@@ -13,10 +13,9 @@ let pagine = [
 let pagineMobile = [
   Home, // -> 0
   Artist, // ->  1
-  Album, // ->  2
+  AlbumMobile, // ->  2
 ];
 // artist?id=1231293
-
 
 const avanti = function () {
   index += 1;
@@ -29,37 +28,33 @@ const indietro = function () {
   render();
 };
 
-
-const loadIndex = function (){
-	const params = new URLSearchParams(window.location.search);
-	const page = params.get('page');
-	if (page !== null) {
-		index = page;
-	} 
-}
-
-const render = function () {
-  
-  const main = document.getElementById("main");
-  try{ 
-	/* TODO quando `e grande telefono se siamo sotto quanti pixel del mobile */
-	if (window.innerWidth < 500){
-		main.innerHTML = pagineMobile[index]();
-	} else {
-		main.innerHTML = pagine[index]();
-	}
-  } catch(err){
-	  console.log(err)
-	// FIXME pagina ops qualcosa `e andato storto
-	console.error('qualcosa e` andato storto');
+const loadIndex = function () {
+  const params = new URLSearchParams(window.location.search);
+  const page = params.get("page");
+  if (page !== null) {
+    index = page;
   }
 };
-const init = async function(){
-	await setCurrentAlbum(75621062);
-	await caricaNovita('rock')
-	loadIndex();
-	render();
-}
-init()
 
-
+const render = function () {
+  const main = document.getElementById("main");
+  try {
+    /* TODO quando `e grande telefono se siamo sotto quanti pixel del mobile */
+    if (window.innerWidth < 500) {
+      main.innerHTML = pagineMobile[index]();
+    } else {
+      main.innerHTML = pagine[index]();
+    }
+  } catch (err) {
+    console.log(err);
+    // FIXME pagina ops qualcosa `e andato storto
+    console.error("qualcosa e` andato storto");
+  }
+};
+const init = async function () {
+  await setCurrentAlbum(75621062);
+  await caricaNovita("rock");
+  loadIndex();
+  render();
+};
+init();
