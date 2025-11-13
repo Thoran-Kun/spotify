@@ -1,60 +1,62 @@
 // buonasera
-let index = 0;
+let index = 0
 
 const Artist = function () {
-  window.location.href = `/artist.html?id=${currentAlbum.artist.id}`;
-};
+  window.location.href = `/artist.html?id=${currentAlbum.artist.id}`
+}
 
 let pagine = [
   Home, // -> 0
   Artist, // ->  1
   Album, // ->  2
-];
+  Search, // -> 3
+]
 let pagineMobile = [
   Home, // -> 0
   Artist, // ->  1
   AlbumMobile, // ->  2
-];
+  Search, // -> 3
+]
 // artist?id=1231293
 
 const avanti = function () {
-  index += 1;
-  if (index >= pagine.length) index = 0;
-  render();
-};
+  index += 1
+  if (index >= pagine.length) index = 0
+  render()
+}
 const indietro = function () {
-  index -= 1;
-  if (index < 0) index = pagine.length - 1;
-  render();
-};
+  index -= 1
+  if (index < 0) index = pagine.length - 1
+  render()
+}
 
 const loadIndex = function () {
-  const params = new URLSearchParams(window.location.search);
-  const page = params.get("page");
+  const params = new URLSearchParams(window.location.search)
+  const page = params.get("page")
   if (page !== null) {
-    index = page;
+    index = page
   }
-};
+}
 
 const render = function () {
-  const main = document.getElementById("main");
+  const main = document.getElementById("main")
   try {
     /* TODO quando `e grande telefono se siamo sotto quanti pixel del mobile */
     if (window.innerWidth < 500) {
-      main.innerHTML = pagineMobile[index]();
+      main.innerHTML = pagineMobile[index]()
     } else {
-      main.innerHTML = pagine[index]();
+      main.innerHTML = pagine[index]()
     }
   } catch (err) {
-    console.log(err);
+    console.log(err)
     // FIXME pagina ops qualcosa `e andato storto
-    console.error("qualcosa e` andato storto");
+    console.error("qualcosa e` andato storto")
   }
-};
+}
 const init = async function () {
-  await setCurrentAlbum(75621062);
-  await caricaNovita("rock");
-  loadIndex();
-  render();
-};
-init();
+  await setCurrentAlbum(75621062)
+  await caricaNovita("rock")
+  loadIndex()
+  render()
+}
+init()
