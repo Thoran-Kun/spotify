@@ -1,9 +1,6 @@
 // buonasera
 let index = 0;
 
-
-
-
 const Artist = function(){
 	window.location.href = `/artist.html?id=${currentAlbum.artist.id}`;
 }
@@ -43,12 +40,14 @@ const render = function () {
   try{ 
 	main.innerHTML = pagine[index]();
   } catch(err){
+	  console.log(err)
 	// FIXME pagina ops qualcosa `e andato storto
 	console.error('qualcosa e` andato storto');
   }
 };
 const init = async function(){
-	await getAlbum(75621062);
+	await setCurrentAlbum(75621062);
+	await caricaNovita('rock')
 	loadIndex();
 	render();
 }
