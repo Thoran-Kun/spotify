@@ -98,12 +98,12 @@ const renderPopularTracksMobile = (tracks) => {
       </button>
     `;
 
-    // Add click event to play track (optional - implementa dopo se serve)
+    // Add click event to play track
     trackElement.addEventListener("click", (e) => {
       // Don't trigger if clicking the menu button
       if (e.target.closest(".song-menu-mobile")) return;
       console.log("Playing track:", track.title);
-      // TODO: Implementare la riproduzione
+      PlayerController.loadTrack(track);
     });
 
     popularSongsContainer.appendChild(trackElement);
@@ -138,6 +138,15 @@ const initArtistMobilePage = async () => {
     renderArtistHeroMobile(artist);
     renderLikedSectionMobile(artist);
     renderPopularTracksMobile(tracks);
+
+    // Precarica la prima traccia nel player (in pausa)
+    if (tracks && tracks.length > 0) {
+      // Aspetta che il PlayerController sia pronto
+      if (typeof PlayerController !== "undefined") {
+        PlayerController.preloadTrack(tracks[0]);
+        console.log("🎵 Prima traccia precaricata in standby");
+      }
+    }
 
     console.log("Artist mobile page loaded successfully");
   } catch (error) {

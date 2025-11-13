@@ -91,10 +91,10 @@ const renderPopularTracks = (tracks) => {
       </div>
     `;
 
-    // Add click event to play track (optional - implementa dopo se serve)
+    // Add click event to play track
     trackElement.addEventListener("click", () => {
       console.log("Playing track:", track.title);
-      // TODO: Implementare la riproduzione
+      PlayerController.loadTrack(track);
     });
 
     popularSongsContainer.appendChild(trackElement);
@@ -148,6 +148,15 @@ const initArtistPage = async () => {
     renderPopularTracks(tracks);
     renderLikedSection(artist);
 
+    // Precarica la prima traccia nel player (in pausa)
+    if (tracks && tracks.length > 0) {
+      // Aspetta che il PlayerController sia pronto
+      if (typeof PlayerController !== "undefined") {
+        PlayerController.preloadTrack(tracks[0]);
+        console.log("🎵 Prima traccia precaricata in standby");
+      }
+    }
+
     console.log("Artist page loaded successfully");
   } catch (error) {
     console.error("Error initializing artist page:", error);
@@ -158,5 +167,4 @@ const initArtistPage = async () => {
 // Initialize when DOM is ready
 document.addEventListener("DOMContentLoaded", initArtistPage);
 
-const switchTo = index => window.location.href = `/?page=${index}`
-
+const switchTo = (index) => (window.location.href = `/?page=${index}`);
