@@ -1,5 +1,10 @@
 <!-- PLAYER MUSICALE FISSO -->
 <div class="music-player fixed-bottom">
+  <!-- Progress bar mobile (sopra il player) -->
+  <div class="mobile-progress-bar">
+    <div class="mobile-progress-fill"></div>
+  </div>
+
   <div class="container-fluid h-100">
     <div class="row align-items-center h-100 g-0 px-2">
       <!-- Sezione sinistra: Informazioni brano (30%) -->
@@ -79,9 +84,15 @@
         <button class="control-btn fullscreen-btn" aria-label="Schermo intero">
           <i class="fas fa-expand-alt"></i>
         </button>
-        <!-- Bottone Play/Pause per Mobile -->
+        <!-- Bottoni Mobile: Prev, Play/Pause, Next -->
+        <button class="prev-btn-mobile" aria-label="Precedente Mobile">
+          <i class="fas fa-step-backward"></i>
+        </button>
         <button class="play-pause-btn-mobile" aria-label="Play/Pause Mobile">
           <i class="fas fa-play"></i>
+        </button>
+        <button class="next-btn-mobile" aria-label="Successivo Mobile">
+          <i class="fas fa-step-forward"></i>
         </button>
       </div>
     </div>
