@@ -267,6 +267,21 @@
 /*     RESPONSIVE STYLES        */
 /* ============================= */
 
+/* Show/Hide Desktop and Mobile Containers */
+.artist-mobile-container {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .artist-desktop-container {
+    display: none !important;
+  }
+
+  .artist-mobile-container {
+    display: block !important;
+  }
+}
+
 /* Tablet e schermi medi (fino a 992px) */
 @media (max-width: 992px) {
   .artist-hero {
