@@ -93,6 +93,7 @@ const Search = function () {
             </div>
           </div>
         </div>
+       </div>
 `
 }
 
@@ -118,5 +119,6 @@ const risultatiHtml = function (ris) {
 	    <input type="hidden" class="track-id-hidden" value="${ris.id}">
 	    <input type="hidden" class="track-title-hidden" value="${ris.title}">
         </div>
+       </div>
     `
 }
