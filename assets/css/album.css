@@ -187,6 +187,21 @@ body {
   background: rgba(255, 255, 255, 0.02);
 }
 
+.song-playing {
+	background-color: rgba(0, 128, 0, 0.15)
+}
+
+.mini-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  color: green;
+  border-bottom: 4px solid;
+  border-image-slice: 1;
+  transition: border-image-source 0.1s linear;
+}
+
 @media (max-width: 768px) {
   .album-top {
     flex-direction: column;

@@ -8,6 +8,7 @@ const caricaNovita = async function(query){
 }
 
 const setCurrentAlbum = async function(id){
+	// TODO try
 	currentAlbum = await getAlbum(id)
 	render()
 }
