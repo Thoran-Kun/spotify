@@ -127,7 +127,7 @@ const cerca = async function () {
 
 const risultatiHtml = function (ris) {
   return `
-      <div class="search-history-item" data-id="1763049238841">
+      <div class="search-history-item" data-id="1763049238841" id="track-${ris.id}" onclick="loadTrackById(${ris.id})">
         <div class="search-item-content">
           <img src="${ris.album.cover_small}" alt="vhjwbiuykjhdv" class="search-item-image ">
           <div class="search-item-info">
@@ -135,6 +135,10 @@ const risultatiHtml = function (ris) {
             <p class="search-item-name">${ris.title}</p>
           </div>
         </div>
+	    <input type="hidden" class="track-album-id" value="${ris.album_id}">
+	    <input type="hidden" class="track-preview" value="${ris.preview}">
+	    <input type="hidden" class="track-id-hidden" value="${ris.id}">
+	    <input type="hidden" class="track-title-hidden" value="${ris.title}">
       </div>
     `
 }
