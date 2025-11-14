@@ -195,8 +195,8 @@ const Track = function (track, i) {
 		    <div class="track-duration me-3">${formatDuration(
 			    track.duration
 		    )}</div>
-	    <input type="hidden" class="track-album-id" value="${track.preview}">
-	    <input type="hidden" class="track-preview" value="${track.album_id}">
+	    <input type="hidden" class="track-album-id" value="${track.album.id}">
+	    <input type="hidden" class="track-preview" value="${track.preview}">
 	    <input type="hidden" class="track-id-hidden" value="${track.id}">
 	    <input type="hidden" class="track-title-hidden" value="${track.title}">
 		  </li>
@@ -287,17 +287,35 @@ const setCurrentSong = function (track){
 	currentSong = track;
 }
 
+const updateDesktopPlayerImage = function (src){
+	const songImage = document.querySelector('.current-song-image > img')
+	songImage.src = src
+}
+
+const updateDesktopInfo = async function(){
+	try{ 
+		const title = document.querySelector('.current-song-info > .song-title')
+		title.innerText = currentSong.title
+	} catch(err){
+		console.warn(err)
+	}
+}
+
 // load track inside player using id
 const loadTrackById = async function(id){
 	let song = htmlTrackToSong(id)
 	setCurrentSong(song)
 
-	console.log(song.album_id)
+	currentAlbum = await getAlbum(song.album_id)
+	localStorage.setItem("albumId", song.album_id);
 
 	setPage(2)
 	audioPlayer.src = currentSong.preview
 	await audioPlayer.play()
 	updateDesktopPlayerButton()
+	updateDesktopPlayerImage(currentAlbum.cover_medium)
+	updateDesktopInfo()
+
 	render()
 }
 
@@ -319,8 +337,8 @@ const songToHtmlTrack = function (track) {
 	  <div class="track-left" >
 	    <div class="track-title">${track.title}</div>
 	    <div class="track-artist">${track.artist.name}</div>
-	    <input type="hidden" class="track-album-id" value="${track.preview}">
-	    <input type="hidden" class="track-preview" value="${track.album_id}">
+	    <input type="hidden" class="track-album-id" value="${track.album.id}">
+	    <input type="hidden" class="track-preview" value="${track.preview}">
 	    <input type="hidden" class="track-id-hidden" value="${track.id}">
 	    <input type="hidden" class="track-title-hidden" value="${track.title}">
 
