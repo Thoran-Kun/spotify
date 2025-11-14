@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="assets/css/circular-font.css" />
     <link rel="stylesheet" href="assets/css/common.css" />
     <link rel="stylesheet" href="assets/css/main-content.css" />
+    <link rel="stylesheet" href="assets/css/search-history.css" />
+    <link rel="stylesheet" href="assets/css/browse-categories.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -87,76 +89,82 @@
                 <div class="row g-3">
                   <!-- Category Card 1 -->
                   <div class="col-md-6 col-lg-4">
-                    <div class="category-card category-card-podcast bg-danger rounded p-3 position-relative overflow-hidden">
-                      <h3 class="h5 fw-bold">Podcast</h3>
+                    <div class="category-card category-podcast">
+                      <h3 class="category-title">Podcast</h3>
+                      <img src="https://placebear.com/120/120" alt="Podcast" class="category-image">
                     </div>
                   </div>
 
                   <!-- Category Card 2 -->
                   <div class="col-md-6 col-lg-4">
-                    <div class="category-card category-card-personal bg-primary rounded p-3 position-relative overflow-hidden">
-                      <h3 class="h5 fw-bold">Per te</h3>
+                    <div class="category-card category-personal">
+                      <h3 class="category-title">Per te</h3>
+                      <img src="https://placebear.com/120/120" alt="Per te" class="category-image">
                     </div>
                   </div>
 
                   <!-- Category Card 3 -->
                   <div class="col-md-6 col-lg-4">
-                    <div class="category-card category-card-releases bg-success rounded p-3 position-relative overflow-hidden">
-                      <h3 class="h5 fw-bold">Nuove uscite</h3>
+                    <div class="category-card category-releases">
+                      <h3 class="category-title">Nuove uscite</h3>
+                      <img src="https://placebear.com/120/120" alt="Nuove uscite" class="category-image">
                     </div>
                   </div>
 
                   <!-- Category Card 4 -->
                   <div class="col-md-6 col-lg-4">
-                    <div class="category-card category-card-pop bg-warning rounded p-3 position-relative overflow-hidden">
-                      <h3 class="h5 fw-bold text-dark">Pop</h3>
+                    <div class="category-card category-pop">
+                      <h3 class="category-title">Pop</h3>
+                      <img src="https://placebear.com/120/120" alt="Pop" class="category-image">
                     </div>
                   </div>
 
                   <!-- Category Card 5 -->
                   <div class="col-md-6 col-lg-4">
-                    <div class="category-card category-card-hiphop bg-info rounded p-3 position-relative overflow-hidden">
-                      <h3 class="h5 fw-bold">Hip-Hop</h3>
+                    <div class="category-card category-hiphop">
+                      <h3 class="category-title">Hip-Hop</h3>
+                      <img src="https://placebear.com/120/120" alt="Hip-Hop" class="category-image">
                     </div>
                   </div>
 
                   <!-- Category Card 6 -->
                   <div class="col-md-6 col-lg-4">
-                    <div class="category-card category-card-rock rounded p-3 position-relative overflow-hidden">
-                      <h3 class="h5 fw-bold">Rock</h3>
+                    <div class="category-card category-rock">
+                      <h3 class="category-title">Rock</h3>
+                      <img src="https://placebear.com/120/120" alt="Rock" class="category-image">
                     </div>
                   </div>
 
                   <!-- Category Card 7 -->
                   <div class="col-md-6 col-lg-4">
-                    <div class="category-card category-card-latin rounded p-3 position-relative overflow-hidden">
-                      <h3 class="h5 fw-bold">Latin</h3>
+                    <div class="category-card category-latin">
+                      <h3 class="category-title">Latin</h3>
+                      <img src="https://placebear.com/120/120" alt="Latin" class="category-image">
                     </div>
                   </div>
 
                   <!-- Category Card 8 -->
                   <div class="col-md-6 col-lg-4">
-                    <div class="category-card category-card-indie rounded p-3 position-relative overflow-hidden">
-                      <h3 class="h5 fw-bold">Indie</h3>
+                    <div class="category-card category-indie">
+                      <h3 class="category-title">Indie</h3>
+                      <img src="https://placebear.com/120/120" alt="Indie" class="category-image">
                     </div>
                   </div>
 
                   <!-- Category Card 9 -->
                   <div class="col-md-6 col-lg-4">
-                    <div class="category-card category-card-workout rounded p-3 position-relative overflow-hidden">
-                      <h3 class="h5 fw-bold">Workout</h3>
+                    <div class="category-card category-workout">
+                      <h3 class="category-title">Workout</h3>
+                      <img src="https://placebear.com/120/120" alt="Workout" class="category-image">
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Recent Searches (Placeholder) -->
-              <div class="recent-searches">
-                <div class="alert alert-secondary" role="alert">
-                  <i class="fas fa-clock me-2"></i>
-                  <strong>Ricerche recenti:</strong> Sezione da implementare con
-                  le ultime ricerche dell'utente
-                </div>
+              <!-- SEZIONE CRONOLOGIA -->
+              <div id="cronologia" class="recent-searches">
+                <h2 class="h4 mb-4">Ricerche recenti</h2>
+                <div id="search-history-container" class="search-history-container"></div>
               </div>
             </div>
           </div>
@@ -177,5 +185,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="assets/js/components-loader.js"></script>
+    <script src="provagabriele.js"></script>
   </body>
 </html>
