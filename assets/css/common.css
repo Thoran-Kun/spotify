@@ -60,3 +60,133 @@ body {
 .content-wrapper > * {
   animation: fadeIn 0.6s ease-out;
 }
+
+/* Stili per link */
+.ricerche-recenti {
+  margine inferiore: 40px;
+}
+ 
+.contenitore-cronologia-ricerca {
+  display: flessibile;
+  direzione di flessione: colonna;
+  spazio: 12px;
+}
+ 
+.elemento-cronologia-ricerca {
+  display: flessibile;
+  align-items: centro;
+  giustifica-contenuto: spazio-tra;
+  colore di sfondo: rgba(255, 255, 255, 0.05);
+  raggio del bordo: 8px;
+  imbottitura: 12px 16px;
+  transizione: colore di sfondo 0,3s facilità;
+  cursore: puntatore;
+}
+ 
+.elemento-cronologia-ricerca:hover {
+  colore di sfondo: rgba(255, 255, 255, 0.1);
+}
+ 
+.contenuto-elemento-ricerca {
+  display: flessibile;
+  align-items: centro;
+  spazio: 12px;
+  flessibilità: 1;
+  larghezza minima: 0;
+}
+ 
+.immagine-elemento-di-ricerca {
+  flessione-restringimento: 0;
+  larghezza: 60px;
+  altezza: 60px;
+  adattamento all'oggetto: copertura;
+  raggio del bordo: 4px;
+  colore di sfondo: #282828;
+}
+ 
+.immagine-elemento-ricerca.artista {
+  raggio del bordo: 50%;
+}
+ 
+.search-item-info {
+  flessibilità: 1;
+  larghezza minima: 0;
+}
+ 
+.tipo-elemento-di-ricerca {
+  dimensione carattere: 11px;
+  peso del carattere: 700;
+  text-transform: maiuscolo;
+  spaziatura tra le lettere: 0,1em;
+  colore: #b3b3b3;
+  visualizzazione: blocco;
+  margine inferiore: 4px;
+}
+ 
+.nome-elemento-ricerca {
+  dimensione carattere: 16px;
+  peso del carattere: 700;
+  colore: #ffffff;
+  margine: 0;
+  overflow: nascosto;
+  text-overflow: ellissi;
+  spazio bianco: nowrap;
+}
+ 
+.delete-search-btn {
+  flessione-restringimento: 0;
+  colore di sfondo: rgba(255, 255, 255, 0.1);
+  bordo: nessuno;
+  larghezza: 32px;
+  altezza: 32px;
+  raggio del bordo: 50%;
+  colore: #ffffff;
+  cursore: puntatore;
+  display: flessibile;
+  align-items: centro;
+  giustifica-contenuto: centro;
+  dimensione carattere: 16px;
+  transizione: tutti i 0,2s facilità;
+  opacità: 1;
+  margine sinistro: 12px;
+}
+ 
+.delete-search-btn:hover {
+  colore di sfondo: rgba(255, 255, 255, 0.2);
+  trasforma: scala(1.1);
+}
+ 
+.storia-vuota {
+  allineamento del testo: centro;
+  imbottitura: 32px 16px;
+  colore: #b3b3b3;
+  dimensione carattere: 14px;
+}
+ 
+.storia-vuota i {
+  dimensione carattere: 32px;
+  margine inferiore: 12px;
+  visualizzazione: blocco;
+  opacità: 0,5;
+}
+ 
+@media (larghezza massima: 768px) {
+  .elemento-cronologia-ricerca {
+    imbottitura: 10px 12px;
+  }
+ 
+  .immagine-elemento-di-ricerca {
+    larghezza: 50px;
+    altezza: 50px;
+  }
+ 
+  .nome-elemento-ricerca {
+    dimensione carattere: 14px;
+  }
+ 
+  .delete-search-btn {
+    larghezza: 28px;
+    altezza: 28px;
+    dimensione carattere: 14px;
+  }
+}
