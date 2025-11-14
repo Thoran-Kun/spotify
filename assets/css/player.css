@@ -261,6 +261,22 @@
   color: #1db954;
 }
 
+/* Bottone play mobile - nascosto di default */
+.play-pause-btn-mobile {
+  display: none !important;
+}
+
+/* Bottoni navigazione mobile */
+.prev-btn-mobile,
+.next-btn-mobile {
+  display: none !important;
+}
+
+/* Progress bar mobile - nascosta di default */
+.mobile-progress-bar {
+  display: none;
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
   .lyrics-btn {
@@ -279,19 +295,212 @@
 }
 
 @media (max-width: 768px) {
+  /* Player compatto con sfondo solido */
+  .music-player {
+    height: 64px;
+    background-color: #282828;
+    border-top: none;
+    bottom: 110px; /* Spazio per la bottom nav più grande */
+  }
+
+  /* Progress bar mobile sopra il player */
+  .mobile-progress-bar {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 10;
+  }
+
+  .mobile-progress-fill {
+    height: 100%;
+    background-color: #1db954;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+
+  .music-player .container-fluid {
+    padding: 0;
+    position: relative; /* Solo il container interno è relative */
+  }
+
+  .music-player .row {
+    padding: 8px 12px;
+  }
+
+  /* Layout orizzontale: immagine + titolo + icone */
+  .player-left {
+    padding-left: 0;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .current-song-image {
+    width: 48px;
+    height: 48px;
+    margin-right: 12px;
+  }
+
   .current-song-info {
+    display: block !important;
+    margin-right: 12px;
+  }
+
+  .current-song-info .artist-name {
     display: none;
+  }
+
+  .song-title {
+    font-size: 13px;
+  }
+
+  /* Nascondi il cuore nella sezione sinistra */
+  .player-left .heart-btn {
+    display: none;
+  }
+
+  /* Centro player - nasconde tutto */
+  .player-center {
+    display: none !important;
+  }
+
+  /* Destra - mostra cuore e play */
+  .player-right {
+    padding-right: 0;
+    width: auto;
+    display: flex !important;
+    gap: 12px !important;
+    align-items: center;
+  }
+
+  /* Nascondi tutti i bottoni originali tranne heart e play */
+  .player-right .lyrics-btn,
+  .player-right .queue-btn,
+  .player-right .devices-btn,
+  .player-right .volume-btn,
+  .player-right .fullscreen-btn {
+    display: none !important;
+  }
+
+  /* Mostra il bottone heart come icona semplice */
+  .player-right::before {
+    content: "\f004";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 400;
+    color: white;
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  /* Crea i bottoni mobile visibili */
+  .player-right .prev-btn-mobile,
+  .player-right .play-pause-btn-mobile,
+  .player-right .next-btn-mobile {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .player-right .prev-btn-mobile,
+  .player-right .next-btn-mobile {
+    font-size: 18px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .player-right .play-pause-btn-mobile {
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
   }
 
   .volume-section {
+    display: none !important;
+  }
+
+  /* Riposiziona colonne */
+  .music-player .col-3,
+  .music-player .col-6 {
+    width: auto;
+  }
+
+  .music-player .col-6 {
     display: none;
   }
 
-  .control-btn:not(.play-pause-btn):not(.volume-btn) {
-    display: none;
+  .music-player .player-left {
+    flex: 1;
+  }
+}
+
+/* ============================= */
+/*   BOTTOM NAVIGATION MOBILE    */
+/* ============================= */
+
+.bottom-nav-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .bottom-nav-mobile {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.98) 15%,
+      rgba(0, 0, 0, 0.95) 30%,
+      rgba(0, 0, 0, 0.85) 45%,
+      rgba(0, 0, 0, 0.6) 60%,
+      rgba(0, 0, 0, 0.3) 75%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    padding: 12px 0 28px;
+    border-top: none;
+    z-index: 999;
+    height: 110px;
   }
 
-  .heart-btn {
-    display: none;
+  .nav-item-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 10px;
+    font-weight: 500;
+    padding: 0 24px;
+    transition: color 0.2s;
+    flex: 1;
+  }
+
+  .nav-item-mobile:hover,
+  .nav-item-mobile.active {
+    color: white;
+  }
+
+  .nav-item-mobile i {
+    font-size: 26px;
+    margin-bottom: 4px;
+  }
+
+  .nav-item-mobile span {
+    font-size: 11px;
   }
 }

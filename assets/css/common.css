@@ -6,7 +6,6 @@
 body {
   background: linear-gradient(180deg, #121212 0%, #000000 100%);
   font-family: "Circular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  padding-bottom: 90px; /* Spazio per il player fisso */
 }
 
 /* Scrollbar personalizzata globale */

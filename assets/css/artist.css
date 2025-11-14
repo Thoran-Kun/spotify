@@ -28,12 +28,21 @@
   z-index: 10;
 }
 
+.artist-hero-nav .nav-arrows {
+  display: flex;
+  gap: 8px;
+}
+
 .artist-hero-nav .btn {
   width: 32px;
   height: 32px;
   background-color: rgba(0, 0, 0, 0.7);
   border: none;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 .artist-hero-nav .btn:hover {
@@ -266,6 +275,21 @@
 /* ============================= */
 /*     RESPONSIVE STYLES        */
 /* ============================= */
+
+/* Show/Hide Desktop and Mobile Containers */
+.artist-mobile-container {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .artist-desktop-container {
+    display: none !important;
+  }
+
+  .artist-mobile-container {
+    display: block !important;
+  }
+}
 
 /* Tablet e schermi medi (fino a 992px) */
 @media (max-width: 992px) {

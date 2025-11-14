@@ -1,5 +1,5 @@
 // ===========================
-// ARTIST PAGE LOGIC
+// ARTIST PAGE LOGIC (UNIFIED)
 // ===========================
 
 /**
@@ -32,7 +32,7 @@ const formatNumber = (num) => {
 };
 
 /**
- * Render artist hero section
+ * Render artist hero section (DESKTOP version)
  * @param {Object} artist - Artist data from API
  */
 const renderArtistHero = (artist) => {
@@ -58,7 +58,33 @@ const renderArtistHero = (artist) => {
 };
 
 /**
- * Render popular tracks list
+ * Render artist hero section (MOBILE version)
+ * @param {Object} artist - Artist data from API
+ */
+const renderArtistHeroMobile = (artist) => {
+  // Update background image
+  const artistHero = document.querySelector(".artist-hero-mobile");
+  if (artistHero && artist.picture_xl) {
+    artistHero.style.backgroundImage = `url('${artist.picture_xl}')`;
+  }
+
+  // Update artist name
+  const artistName = document.querySelector(".artist-name-mobile");
+  if (artistName) {
+    artistName.textContent = artist.name;
+  }
+
+  // Update listeners count
+  const artistListeners = document.querySelector(".artist-listeners-mobile");
+  if (artistListeners && artist.nb_fan) {
+    artistListeners.textContent = `${formatNumber(
+      artist.nb_fan
+    )} ascoltatori mensili`;
+  }
+};
+
+/**
+ * Render popular tracks list (DESKTOP version)
  * @param {Array} tracks - Array of track objects from API
  */
 const renderPopularTracks = (tracks) => {
@@ -68,8 +94,8 @@ const renderPopularTracks = (tracks) => {
   // Clear existing tracks
   popularSongsContainer.innerHTML = "";
 
-  // Render top tracks (limit to 8 for display)
-  const tracksToShow = tracks.slice(0, 8);
+  // Render top tracks (limit to 12 for desktop)
+  const tracksToShow = tracks.slice(0, 12);
 
   tracksToShow.forEach((track, index) => {
     const trackElement = document.createElement("div");
@@ -91,10 +117,11 @@ const renderPopularTracks = (tracks) => {
       </div>
     `;
 
-    // Add click event to play track (optional - implementa dopo se serve)
+    // Add click event to play track
     trackElement.addEventListener("click", () => {
       console.log("Playing track:", track.title);
-      // TODO: Implementare la riproduzione
+      // Carica per indice per mantenere la posizione nella playlist
+      PlayerController.loadTrackByIndex(index);
     });
 
     popularSongsContainer.appendChild(trackElement);
@@ -102,7 +129,54 @@ const renderPopularTracks = (tracks) => {
 };
 
 /**
- * Render liked songs section
+ * Render popular tracks list (MOBILE version)
+ * @param {Array} tracks - Array of track objects from API
+ */
+const renderPopularTracksMobile = (tracks) => {
+  const popularSongsContainer = document.querySelector(".popular-songs-mobile");
+  if (!popularSongsContainer) return;
+
+  // Clear existing tracks
+  popularSongsContainer.innerHTML = "";
+
+  // Render top tracks (limit to 12 for mobile)
+  const tracksToShow = tracks.slice(0, 12);
+
+  tracksToShow.forEach((track, index) => {
+    const trackElement = document.createElement("div");
+    trackElement.className = "popular-song-item-mobile";
+
+    trackElement.innerHTML = `
+      <span class="song-number-mobile">${index + 1}</span>
+      <img
+        src="${track.album.cover_medium}"
+        alt="${track.title}"
+        class="song-img-mobile"
+      />
+      <div class="song-info-mobile">
+        <div class="song-title-mobile">${track.title}</div>
+        <div class="song-plays-mobile">${formatNumber(track.rank)}</div>
+      </div>
+      <button class="song-menu-mobile" aria-label="More options">
+        <i class="fas fa-ellipsis-v"></i>
+      </button>
+    `;
+
+    // Add click event to play track
+    trackElement.addEventListener("click", (e) => {
+      // Don't trigger if clicking the menu button
+      if (e.target.closest(".song-menu-mobile")) return;
+      console.log("Playing track:", track.title);
+      // Carica per indice per mantenere la posizione nella playlist
+      PlayerController.loadTrackByIndex(index);
+    });
+
+    popularSongsContainer.appendChild(trackElement);
+  });
+};
+
+/**
+ * Render liked songs section (DESKTOP version)
  * @param {Object} artist - Artist data from API
  */
 const renderLikedSection = (artist) => {
@@ -120,7 +194,25 @@ const renderLikedSection = (artist) => {
 };
 
 /**
- * Initialize artist page
+ * Render liked section (MOBILE version)
+ * @param {Object} artist - Artist data from API
+ */
+const renderLikedSectionMobile = (artist) => {
+  const artistImg = document.querySelector(".liked-artist-img-mobile");
+  const artistNameText = document.querySelector(".artist-name-text");
+
+  if (artistImg && artist.picture_medium) {
+    artistImg.src = artist.picture_medium;
+    artistImg.alt = artist.name;
+  }
+
+  if (artistNameText) {
+    artistNameText.textContent = artist.name;
+  }
+};
+
+/**
+ * Initialize artist page (UNIFIED for both desktop and mobile)
  */
 const initArtistPage = async () => {
   try {
@@ -141,22 +233,100 @@ const initArtistPage = async () => {
     const artist = await getArtist(artistId);
 
     // Fetch artist tracks
-    const tracks = await getArtistTracks(artistId);
+    const allTracks = await getArtistTracks(artistId);
 
-    // Render data
+    // Usa solo i primi 12 brani più popolari
+    const tracks = allTracks.slice(0, 12);
+
+    // Render BOTH desktop and mobile layouts
     renderArtistHero(artist);
-    renderPopularTracks(tracks);
-    renderLikedSection(artist);
+    renderArtistHeroMobile(artist);
 
-    console.log("Artist page loaded successfully");
+    renderPopularTracks(tracks);
+    renderPopularTracksMobile(tracks);
+
+    renderLikedSection(artist);
+    renderLikedSectionMobile(artist);
+
+    // Precarica la prima traccia nel player (in pausa) - UNA VOLTA SOLA
+    if (tracks && tracks.length > 0) {
+      // Aspetta che il PlayerController sia pronto
+      if (typeof PlayerController !== "undefined") {
+        // Imposta la playlist dei 12 brani nel player
+        PlayerController.setPlaylist(tracks);
+        // Precarica la prima traccia in standby
+        PlayerController.preloadTrack(tracks[0]);
+        console.log(
+          `🎵 Playlist caricata: ${tracks.length} brani - Prima traccia in standby`
+        );
+      }
+    }
+
+    // Setup play buttons della pagina (desktop e mobile)
+    setupPagePlayButtons(tracks);
+
+    console.log("Artist page loaded successfully (desktop + mobile)");
   } catch (error) {
     console.error("Error initializing artist page:", error);
     alert("Errore nel caricamento dei dati dell'artista");
   }
 };
 
+/**
+ * Setup dei bottoni play principali della pagina artist
+ * @param {Array} tracks - Array di tracce
+ */
+const setupPagePlayButtons = (tracks) => {
+  // Bottone play desktop
+  const playButtonDesktop = document.querySelector(".btn-play");
+  if (playButtonDesktop) {
+    playButtonDesktop.addEventListener("click", () => {
+      handlePagePlayButton(tracks);
+    });
+  }
+
+  // Bottone play mobile
+  const playButtonMobile = document.querySelector(".btn-play-mobile");
+  if (playButtonMobile) {
+    playButtonMobile.addEventListener("click", () => {
+      handlePagePlayButton(tracks);
+    });
+  }
+};
+
+/**
+ * Gestisce il click sui bottoni play della pagina
+ * @param {Array} tracks - Array di tracce
+ */
+const handlePagePlayButton = (tracks) => {
+  if (!tracks || tracks.length === 0) return;
+
+  // Se il player ha già una traccia e sta suonando, metti in pausa
+  if (
+    PlayerController.isPlaying &&
+    PlayerController.currentTrack &&
+    PlayerController.currentTrack.preview
+  ) {
+    PlayerController.pause();
+    console.log("⏸️ Pausa dalla pagina");
+  }
+  // Se il player ha una traccia in pausa, riprendi
+  else if (
+    !PlayerController.isPlaying &&
+    PlayerController.currentTrack &&
+    PlayerController.currentTrack.preview
+  ) {
+    PlayerController.play();
+    console.log("▶️ Play dalla pagina");
+  }
+  // Altrimenti carica e avvia la prima traccia
+  else {
+    PlayerController.loadTrack(tracks[0]);
+    console.log("🎧 Caricata prima traccia dalla pagina");
+  }
+};
+
 // Initialize when DOM is ready
 document.addEventListener("DOMContentLoaded", initArtistPage);
 
-const switchTo = index => window.location.href = `/?page=${index}`
-
+const switchTo = (index) => (window.location.href = `/?page=${index}`);
