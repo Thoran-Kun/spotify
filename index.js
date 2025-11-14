@@ -1,6 +1,7 @@
 // buonasera
 let index = 0
 let resizeTimer;
+let renderTimer;
 
 
 /* cordone ombellicale alla pagina di tanjin*/
@@ -9,7 +10,7 @@ const Artist = function () {
 }
 
 const setPage = function (i){
-	index = i
+	index = +i
 	render()
 }
 
@@ -26,12 +27,34 @@ let pagineMobile = [
 	Search, // -> 3
 ]
 
+const ErrorPage = function(){
+	return `
+	<div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 col-12">
+          <p class="fw-bold" style="font-size: 100px">
+            <i class="bi bi-exclamation-triangle"></i>error 
+          </p>
+ 
+          <p>
+            restiamo a disposizione per ogni ulteriore necessità. Cordiali
+            saluti, Il Team 4
+          </p>
+        </div>
+      </div>
+    </div>
+`
+}
+
 const avanti = function () {
+	// DANNATO JS
+	index = parseInt(index)
 	index += 1
 	if (index >= pagine.length) index = 0
 	render()
 }
 const indietro = function () {
+	index = parseInt(index)
 	index -= 1
 	if (index < 0) index = pagine.length - 1
 	render()
@@ -60,6 +83,7 @@ const fixPadding = function(mode) {
 			break;
 		case 'desktop':
 		case 'computer':
+		case 'lavatrice':
 			/* restore old padding */
 			body.style.padding = '2rem';
 			break;
@@ -70,6 +94,7 @@ const fixPadding = function(mode) {
 
 
 const render = function () {
+	clearTimeout(renderTimer);
 	const main = document.getElementById("main")
 	try {
 		/* TODO quando `e grande telefono se siamo sotto quanti pixel del mobile */
@@ -78,19 +103,17 @@ const render = function () {
 
 			main.innerHTML = pagineMobile[index]()
 		} else {
-			fixPadding('desktop');
+			fixPadding('lavatrice');
 			main.innerHTML = pagine[index]()
 		}
 	} catch (err) {
-		console.log(err)
-		// FIXME pagina ops qualcosa `e andato storto
-		console.error("qualcosa e` andato storto")
+		main.innerHTML = ErrorPage()
+		clearTimeout(resizeTimer);
+		renderTimer = setTimeout(() => {
+			render();
+		}, 1000);
 	}
 }
-
-document.addEventListener("keydown", (e) => {
-	cerca()
-});
 
 window.addEventListener('resize', function() {
 	/* resize 100 ms after last window resize
@@ -142,8 +165,44 @@ const updateDesktopPlayerButton = function(){
 	}
 }
 
+const fixNav = function(){
+	const nav = document.querySelector('.main-nav')
+	nav.innerHTML = `
+    <nav class="main-nav">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a onclick="setPage(0)" class="nav-link" data-page="home">
+            <i class="fas fa-home me-3"></i>Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a onclick="setPage(3)" class="nav-link" data-page="search">
+            <i class="fas fa-search me-3"></i>Cerca
+          </a>
+        </li>
+        <li class="nav-item">
+          <a onclick="setPage(2)" class="nav-link" data-page="album">
+            <i class="fas fa-compact-disc me-3"></i>Album
+          </a>
+        </li>
+        <li class="nav-item">
+          <a onclick="setPage(1)" class="nav-link" data-page="artist">
+            <i class="fas fa-microphone me-3"></i>Artista
+          </a>
+        </li>
+      </ul>
+    </nav>
+`
+}
+
 const init = async function () {
-	await setCurrentAlbum(75621062)
+	const lastAlbum = localStorage.getItem("albumId");
+	if (lastAlbum !== null) {
+		await setCurrentAlbum(lastAlbum)
+	} else {
+		await setCurrentAlbum(75621062)
+	}
+
 	await caricaNovita("rock")
 	loadIndex()
 	render()
@@ -161,6 +220,14 @@ const init = async function () {
 		togglePlay()
 		updateDesktopPlayerButton()
 	});
+
+
+	document.addEventListener("keyup", function (event) {
+		if (parseInt(index) === 3) {
+			cerca()
+		}
+	});
+	fixNav()
 	//background: linear-gradient(to right, green 50%, white 50%);
 	/* update player bar */
 	//});

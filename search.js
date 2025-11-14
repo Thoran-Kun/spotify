@@ -1,13 +1,13 @@
 const Search = function () {
-  return `<div class="col-12 col-sm-12 col-md-9 col-lg-7 main-content">
+  return `
           <div class="content-wrapper p-4">
             <!-- Header con navigazione -->
             <div class="content-header d-flex justify-content-between align-items-center mb-4">
               <div class="nav-arrows">
-                <button class="btn btn-dark rounded-circle me-2" title="Torna indietro" aria-label="Torna indietro">
+                <button onclick="indietro()" class="btn btn-dark rounded-circle me-2" title="Torna indietro" aria-label="Torna indietro">
                   <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="btn btn-dark rounded-circle" title="Vai avanti" aria-label="Vai avanti">
+                <button onclick="avanti()" class="btn btn-dark rounded-circle" title="Vai avanti" aria-label="Vai avanti">
                   <i class="fas fa-chevron-right"></i>
                 </button>
               </div>
@@ -75,29 +75,8 @@ const Search = function () {
 
                   <!-- Category Card 6 -->
                   <div class="col-md-6 col-lg-4">
-                    <div class="category-card category-card-rock rounded p-3 position-relative overflow-hidden">
+                    <div class="category-card category-card-rock border border-white rounded p-3 position-relative overflow-hidden">
                       <h3 class="h5 fw-bold">Rock</h3>
-                    </div>
-                  </div>
-
-                  <!-- Category Card 7 -->
-                  <div class="col-md-6 col-lg-4">
-                    <div class="category-card category-card-latin rounded p-3 position-relative overflow-hidden">
-                      <h3 class="h5 fw-bold">Latin</h3>
-                    </div>
-                  </div>
-
-                  <!-- Category Card 8 -->
-                  <div class="col-md-6 col-lg-4">
-                    <div class="category-card category-card-indie rounded p-3 position-relative overflow-hidden">
-                      <h3 class="h5 fw-bold">Indie</h3>
-                    </div>
-                  </div>
-
-                  <!-- Category Card 9 -->
-                  <div class="col-md-6 col-lg-4">
-                    <div class="category-card category-card-workout rounded p-3 position-relative overflow-hidden">
-                      <h3 class="h5 fw-bold">Workout</h3>
                     </div>
                   </div>
                 </div>
@@ -127,18 +106,17 @@ const cerca = async function () {
 
 const risultatiHtml = function (ris) {
   return `
-      <div class="search-history-item" data-id="1763049238841" id="track-${ris.id}" onclick="loadTrackById(${ris.id})">
+      <div class="search-history-item" id="track-${ris.id}" onclick="loadTrackById(${ris.id})">
         <div class="search-item-content">
           <img src="${ris.album.cover_small}" alt="vhjwbiuykjhdv" class="search-item-image ">
           <div class="search-item-info">
             <span class="search-item-type">${ris.artist.name}</span>
             <p class="search-item-name">${ris.title}</p>
           </div>
-        </div>
-	    <input type="hidden" class="track-album-id" value="${ris.album_id}">
+	    <input type="hidden" class="track-album-id" value="${ris.album.id}">
 	    <input type="hidden" class="track-preview" value="${ris.preview}">
 	    <input type="hidden" class="track-id-hidden" value="${ris.id}">
 	    <input type="hidden" class="track-title-hidden" value="${ris.title}">
-      </div>
+        </div>
     `
 }
